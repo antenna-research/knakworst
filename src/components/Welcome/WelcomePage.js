@@ -1,7 +1,6 @@
 import React, {PureComponent} from 'react'
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types'
-import NavComponent from "../Nav/NavComponent";
 
 class WelcomePage extends PureComponent {
   render() {
