@@ -1,0 +1,18 @@
+#NavComponent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.NavComponent-Link,
+.NavComponent-Link:focus,
+.NavComponent-Link:hover,
+.NavComponent-Link:visited,
+.NavComponent-Link:link,
+.NavComponent-Link:active {
+    text-decoration: none;
+    color: black;
+}
+
+#NavComponent div {
+    margin: 1em;
+}
