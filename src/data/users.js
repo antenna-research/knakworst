@@ -1,6 +1,5 @@
-export default [
-  {
-    id: 1,
+export default {
+  1: {
     username: 'Kinney1',
     firstName: 'Kinney',
     lastName: 'Tate',
@@ -13,8 +12,7 @@ export default [
     youtube: ['https://google.com'],
     image: ['https://google.com']
   },
-  {
-    id: 2,
+  2: {
     username: 'Tim2',
     firstName: 'Tim',
     lastName: 'van der Voorn',
@@ -27,8 +25,7 @@ export default [
     youtube: ['https://google.com'],
     image: ['https://google.com']
   },
-  {
-    id: 3,
+  3: {
     username: 'Isabella2',
     firstName: 'Isabella',
     lastName: 'Brookes',
@@ -41,4 +38,4 @@ export default [
     youtube: ['https://google.com'],
     image: ['https://google.com']
   }
-]
+}
