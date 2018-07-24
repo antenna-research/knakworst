@@ -3,10 +3,10 @@ import './styles/App.css'
 import WelcomePage from "../Welcome/WelcomePage"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUserCircle, faMusic, faComment } from '@fortawesome/free-solid-svg-icons'
+import { fab, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
-library.add(faUserCircle)
-library.add(faMusic)
-library.add(faComment)
+library.add(faUserCircle, faMusic, faComment, faWhatsapp, fab)
+
 class App extends Component {
   render() {
     return (
