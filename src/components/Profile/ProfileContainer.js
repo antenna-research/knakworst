@@ -9,11 +9,16 @@ class ProfileContainer extends PureComponent {
       <div id={'ProfileContainer'}>
         <NavComponent/>
         Profile Container
+        <Profile profile={this.props.users}/>
       </div>
     )
   }
 }
 
-ProfileContainer.propTypes = {}
+function mapStateToProps(state) {
+  return {
+    users: state.users
+  }
+}
 
-export default ProfileContainer
+export default connect(mapStateToProps)(ProfileContainer)
