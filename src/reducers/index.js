@@ -1,7 +1,11 @@
 import { combineReducers } from 'redux'
-import userReducer from './users'
 
+import usersReducer from './users'
+import preferencesReducer from './users'
+import matchesReducer from './matches'
 
 export default combineReducers({
-  users: userReducer
-}) 
+  users: usersReducer,
+  preferences: preferencesReducer,
+  matches: matchesReducer
+})
