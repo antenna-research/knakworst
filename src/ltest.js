@@ -1,7 +1,21 @@
-import _ from 'lodash'
-
-import { DISLIKE_USER, LIKE_USER } from '../actions/swipe'
-import matches from '../data/matches'
+const _ = require('lodash')
+const matches = {
+  1: {
+    likes: [2, 3],
+    dislikes: [7, 8, 9],
+    matches: [2, 3]
+  },
+  2: {
+    likes: [1],
+    dislikes: [5, 6, 7],
+    matches: [1]
+  },
+  3: {
+    likes: [1],
+    dislikes: [5, 6, 7],
+    matches: [1]
+  }
+}
 
 const likeUser = (state, { mainUserId, profileUserId }) => {
   const newState = _.cloneDeep(state)
@@ -12,7 +26,7 @@ const likeUser = (state, { mainUserId, profileUserId }) => {
       if (!likes.includes(id)) {
         likes.push(id)
       }
-      return likes()
+      return likes
     },
     []
   )
@@ -25,14 +39,6 @@ const dislikeUser = (state, { mainUserId, profileUserId }) => {
   return newState
 }
 
-const reducer = (state = matches, { type, payload } = {}) => {
-  switch (type) {
-    case LIKE_USER:
-      return likeUser(state, payload)
-    case DISLIKE_USER:
-      return dislikeUser(state, payload)
-    default:
-      return state
-  }
-}
-export default reducer
+const res = dislikeUser(matches, { mainUserId: 1, profileUserId: 2 })
+
+console.log(res)
