@@ -1,6 +1,15 @@
 import users from '../data/users'
 
-const reducer = (state = users, { type, payload } = {}) => {
+const initialState = {
+  currentUser: {},
+  users
+}
+
+const likeUser = (state, { userId, targetId }) => {
+  return state
+}
+
+const reducer = (state = initialState, { type, payload } = {}) => {
   switch (type) {
     default:
       return state
