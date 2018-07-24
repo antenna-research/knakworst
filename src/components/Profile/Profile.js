@@ -4,19 +4,16 @@ import { connect } from 'react-redux'
 export default function Profile(props) {
 
   // remove when container is ready
-  props.user = {
+  props.profile = {
     firstName: 'Kinney',
     lastName: 'Tate',
     age: 20,
     phone: '974-566-3044',
     email: 'Kinney@gmail.com',
     address: 'Amsterdam',
-
-    profile: {
-      genres: ['Rock', 'Jazz', 'Pop'],
-      instrument: ['Guitar'],
-      youtube: 'ltmYirj5IA0',
-    },
+    genres: ['Rock', 'Jazz', 'Pop'],
+    instruments: ['Guitar'],
+    youtube: 'ltmYirj5IA0'
   }
 
   return (<div class="profile">
@@ -31,13 +28,13 @@ export default function Profile(props) {
     </ul>
     <div class="profile-name-age-place">
       <div class="profile-name">
-        {props.user.firstName} {props.user.lastName}
+        {props.profile.firstName} {props.profile.lastName}
       </div>
       <div class="profile-age">
-        {props.user.age}
+        {props.profile.age}
       </div>
       <div class="profile-city">
-        {props.user.age}
+        {props.profile.age}
       </div>
     </div>
     <ul class="profile-instruments">
