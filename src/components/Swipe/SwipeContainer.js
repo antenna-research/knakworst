@@ -2,15 +2,35 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import Swipe from './Swipe'
 import {likeUser, dislikeUser} from '../../actions/swipe'
-import ProfileContainer from "../Profile/ProfileContainer";
+import NavComponent from "../Nav/NavComponent";
 
 class SwipeContainer extends PureComponent {
+  state = {
+    currentCandidate: 0,
+    viableCandidates: null
+  }
+  componentDidMount() {
+    this.setState({
+      currentCandidate: this.getUserCandidates()[0],
+      viableCandidates: this.getUserCandidates(),
+    })
+  }
+
+  //iterate over the length of the viableCandidates array and increment the index after each button action
+
+  getUserCandidates = () => {
+    return Object.keys(this.props.users)
+      .map(user => user)
+      .filter(userId => userId !== this.props.currentUser)
+  }
+
   render() {
     return (
       <div id={'SwipeContainer'}>
+        {console.log(this.props.currentUser)}
+      <NavComponent/>
        {!this.props && 'Loading'}
-        <ProfileContainer />
-        <Swipe likeUser={this.props.likeUser} dislikeUser={this.props.dislikeUser} users={this.props.users}/>
+        <Swipe profile={this.props.users} likeUser={this.props.likeUser} dislikeUser={this.props.dislikeUser} currentCandidate={this.state.currentCandidate}/>
       </div>
     )
   }
@@ -18,7 +38,8 @@ class SwipeContainer extends PureComponent {
 
 function mapStateToProps(state) {
   return {
-    users: state.users
+    users: state.users,
+    currentUser: state.currentUser,
   }
 }
 

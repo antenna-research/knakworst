@@ -2,21 +2,20 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 export default function Profile(props) {
-
-
-
+  const userId = props.userId
+  const currentCandidate = props.profile[userId]
   return (
-    
+
     // <div>
     //   {console.log(props)}
     //   {/* {props && console.log(props.users)} */}
-    //  </div> 
-  <div>
+    //  </div>
+  <div id={props.userId}>
     {!props.profile && 'Loading'}
 
     {props.profile &&
 
-    <h1>works</h1>
+    <h1>{console.log(currentCandidate.name)}</h1>
     
   //   <div class="profile">
   //   <div class="profile-video">

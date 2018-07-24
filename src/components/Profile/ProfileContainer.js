@@ -8,9 +8,10 @@ class ProfileContainer extends PureComponent {
   render() {
     return (
       <div id={'ProfileContainer'}>
+      {console.log(this.props.users)}
         <NavComponent/>
         Profile Container
-        <Profile profile={this.props.users}/>
+        <Profile profile={this.props.users} userId={'1'}/>
       </div>
     )
   }
