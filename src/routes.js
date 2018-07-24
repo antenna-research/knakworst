@@ -3,7 +3,7 @@ import {BrowserRouter, Route} from "react-router-dom"
 import MatchesPageContainer from "./components/Matches/MatchesPageContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import SwipeContainer from "./components/Swipe/SwipeContainer";
-import App from "./App";
+import App from "./components/App/App";
 
 export default () => {
     return(
