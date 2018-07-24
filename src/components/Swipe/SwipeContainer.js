@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import Swipe from './Swipe'
 import {likeUser, dislikeUser} from '../../actions/swipe'
+import ProfileContainer from "../Profile/ProfileContainer";
 
 class SwipeContainer extends PureComponent {
   render() {
