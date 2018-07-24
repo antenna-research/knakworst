@@ -3,19 +3,21 @@ import _ from 'lodash'
 import { DISLIKE_USER, LIKE_USER } from '../actions/swipe'
 import matches from '../data/matches'
 
+const updateMatches = (state, mainUserId, profileUserId) => {
+  const isIncluded = state[profileUserId].likes.includes(mainUserId)
+  if (isIncluded) {
+    state[mainUserId].matches.push(profileUserId)
+    state[profileUserId].matches.push(mainUserId)
+  }
+}
+
 const likeUser = (state, { mainUserId, profileUserId }) => {
   const newState = _.cloneDeep(state)
 
-  //add profileUserId and remove duplication
-  newState[mainUserId].likes = [...newState[mainUserId].likes, profileUserId].reduce(
-    (likes, id) => {
-      if (!likes.includes(id)) {
-        likes.push(id)
-      }
-      return likes()
-    },
-    []
-  )
+  newState[mainUserId].likes = [...newState[mainUserId].likes, profileUserId]
+
+  updateMatches(state, mainUserId, profileUserId)
+
   return newState
 }
 
