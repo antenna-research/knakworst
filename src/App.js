@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import LandingPageContainer from "./components/Landing/LandingPageContainer";
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle, faMusic, faComment } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faUserCircle)
