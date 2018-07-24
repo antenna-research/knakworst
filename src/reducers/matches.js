@@ -5,6 +5,7 @@ import matches from '../data/matches'
 
 const updateMatches = (state, mainUserId, profileUserId) => {
   const isIncluded = state[profileUserId].likes.includes(mainUserId)
+
   if (isIncluded) {
     state[mainUserId].matches.push(profileUserId)
     state[profileUserId].matches.push(mainUserId)
