@@ -1,17 +1,16 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import Profile from '../../components/Profile/Profile'
+import PropTypes from 'prop-types'
+import NavComponent from "../Nav/NavComponent";
+import Profile from "./Profile";
 
 class ProfileContainer extends PureComponent {
-
-  
   render() {
-   
     return (
-      <div>
-  
-       <Profile profile={this.props.users}/>
-       
+      <div id={'ProfileContainer'}>
+        <NavComponent/>
+        Profile Container
+        <Profile profile={this.props.users}/>
       </div>
     )
   }
