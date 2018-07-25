@@ -1,9 +1,7 @@
 import './styles/EditPreferences.css'
 import React, { PureComponent } from 'react'
-import {Link} from 'react-router-dom'
-import { Form , FormGroup, Checkbox, ControlLabel, Grid, Col, FormControl, Button, Label} from 'react-bootstrap';
+import { Form , FormGroup, Checkbox, ControlLabel, Grid, Col, FormControl, Button, Label, InputGroup, InputGroupAddon} from 'react-bootstrap';
 import {allGenres, allInstruments, allLocations} from '../../data/alternatives-per-preference' ;
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>;
 
 
 
@@ -75,32 +73,27 @@ export default class EditPreferencesPage extends PureComponent {
        })
       }
    
-      if(e.target.name === 'min') this.setState({ age: { ...this.state.age, [e.target.name]: e.target.value} });
-      if(e.target.name === 'max') this.setState({ age: { ...this.state.age, [e.target.name]: e.target.value} });
+      if(e.target.name === 'min') this.setState({ age: { ...this.state.age, [e.target.name]: Number(e.target.value)} });
+      if(e.target.name === 'max') this.setState({ age: { ...this.state.age, [e.target.name]: Number(e.target.value)} });
    }
 
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
-    
+    this.props.sendNewPrefences(this.state)
   }
 
   render() {
 
-    const prevState = {...this.state}
-    const prevAge = prevState.age
-    const agemin = prevAge.min
-    console.log(
-      agemin
-    )
-
-
     return (
+      
       <div>
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossOrigin="anonymous" />
         <div className="container">
           <div className="col md-6">
-              <div className="form profile-form">
+              <div className="card">
+                <form onSubmit={this.handleSubmit}>
             
                  {!this.props.preferences && 
                   <div>
@@ -108,7 +101,7 @@ export default class EditPreferencesPage extends PureComponent {
                   </div>
                   }
                   
-                  <div className="form-group">
+                  <div className="form-group card-body">
                   {this.props.preferences && 
                   <div>
                     <ControlLabel>Genres</ControlLabel>
@@ -132,9 +125,10 @@ export default class EditPreferencesPage extends PureComponent {
                   }
                   </div>
                   
-                  <FormGroup>
+               
+                 
                   {this.props.preferences && 
-                  <div>
+                  <div className="card-body">
                     <ControlLabel>Instruments</ControlLabel>
                     {allInstruments.map(instrument => {
                 
@@ -154,11 +148,10 @@ export default class EditPreferencesPage extends PureComponent {
                     })}
                   </div>
                   }
-                  </FormGroup>
-  
-                   <FormGroup>
+        
+                   
                   {this.props.preferences && 
-                  <div>
+                  <div className="card-body">
                     <ControlLabel>Locations</ControlLabel>
                     {allLocations.map(location => {
                 
@@ -178,9 +171,39 @@ export default class EditPreferencesPage extends PureComponent {
                     })}
                   </div>
                   }
-                  </FormGroup>
+                
 
-                  <FormGroup>
+                  <div className="card-body">                  
+                    <FormGroup>
+                      <InputGroup>
+                        <InputGroup.Addon>New minimum age</InputGroup.Addon>
+                        <FormControl onChange={this.handleChange} type="number" name="min" placeholder="The minimum age"/>
+                      </InputGroup>
+                    </FormGroup>
+                    <FormGroup>
+                    <InputGroup>
+                        <InputGroup.Addon>New maximum age</InputGroup.Addon>
+                        <FormControl onChange={this.handleChange} type="number" name="max" placeholder="The maximum age"/>
+                      </InputGroup>
+                    </FormGroup> 
+                    </div> 
+
+                  <div className="card-body">   
+                    <Button type="submit">Save preferences</Button>
+                  </div>     
+                  </form>         
+              </div>
+            </div>
+        </div>
+      </div>
+    )
+  }
+}
+
+
+
+
+   {/* <FormGroup>
                       <p>Your current age range:</p>
                       <p>{this.state.age.min} - {this.state.age.max}</p>
                       <p>
@@ -191,12 +214,4 @@ export default class EditPreferencesPage extends PureComponent {
                         <label>New maximum age</label>
                         <input onChange={this.handleChange} type="number" name="max"placeholder="The maximum age"/> 
                       </p> 
-                  </FormGroup> 
-                  <Button type="submit">Save preferences</Button>
-              </div>
-            </div>
-        </div>
-      </div>
-    )
-  }
-}
+                  </FormGroup>  */}

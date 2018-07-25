@@ -2,19 +2,31 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import EditPreferencesPage from './EditPreferencesPage'
 import NavComponent from "../Nav/NavComponent";
+import {updatePreferences} from '../../actions/updatePreferences'
 
 class EditPreferencesPageContainer extends  PureComponent {
+
+  sendNewPrefences = (newPreferences) => {
+    console.log(this.props)
+    console.log(this.props.currentUser, newPreferences)
+    this.props.updatePreferences(this.props.currentUser, newPreferences)
+  }
 
   render() {
     return (
       <div>
         <NavComponent />
-        Edit Preferences Page Container!
-        <EditPreferencesPage currentUser={this.props.currentUser} preferences={this.props.preferences}/> 
+        <EditPreferencesPage currentUser={this.props.currentUser} preferences={this.props.preferences} updatePreferences={updatePreferences} sendNewPrefences={this.sendNewPrefences}/> 
       </div>
     )
   }
 }
+
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     updatePreferences: (newPreferences) => dispatch(updatePreferences(newPreferences))
+//   }
+// }
 
 const mapStateToProps = state => {
   return {
@@ -23,4 +35,6 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(EditPreferencesPageContainer)
+export default connect(mapStateToProps, {updatePreferences})(EditPreferencesPageContainer)
+
+//
