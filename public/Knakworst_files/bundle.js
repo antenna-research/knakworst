@@ -66823,7 +66823,7 @@ function ProfileCard(props) {
 
 /***/ "./src/components/Profile/ProfileContainer.js":
 /*!****************************************************!*\
-  !*** ./src/components/Profile/ProfileContainer.js ***!
+  !*** ./src/components/Profile/PersonalProfileContainer.js ***!
   \****************************************************/
 /*! exports provided: default */
 /*! exports used: default */
@@ -66837,7 +66837,7 @@ function ProfileCard(props) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Nav_NavComponent__ = __webpack_require__(/*! ../Nav/NavComponent */ "./src/components/Nav/NavComponent.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ProfileCard__ = __webpack_require__(/*! ./ProfileCard */ "./src/components/Profile/ProfileCard.js");
-var _jsxFileName = '/Users/isabella/Development/codaisseur/Week4/knakworst/src/components/Profile/ProfileContainer.js';
+var _jsxFileName = '/Users/isabella/Development/codaisseur/Week4/knakworst/src/components/Profile/PersonalProfileContainer.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -67646,7 +67646,7 @@ function unregister() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Matches_MatchesPageContainer__ = __webpack_require__(/*! ./components/Matches/MatchesPageContainer */ "./src/components/Matches/MatchesPageContainer.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Profile_ProfileContainer__ = __webpack_require__(/*! ./components/Profile/ProfileContainer */ "./src/components/Profile/ProfileContainer.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Profile_ProfileContainer__ = __webpack_require__(/*! ./components/Profile/ProfileContainer */ "./src/components/Profile/PersonalProfileContainer.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Swipe_SwipeContainer__ = __webpack_require__(/*! ./components/Swipe/SwipeContainer */ "./src/components/Swipe/SwipeContainer.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_App_App__ = __webpack_require__(/*! ./components/App/App */ "./src/components/App/App.js");
 var _jsxFileName = "/Users/isabella/Development/codaisseur/Week4/knakworst/src/routes.js",

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
 import usersReducer from './users'
-import preferencesReducer from './users'
+import preferencesReducer from './preferences'
 import matchesReducer from './matches'
 import currentUser from './currentUser'
 

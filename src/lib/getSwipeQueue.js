@@ -1,7 +1,7 @@
-import shuffle from 'lodash.shuffle';
-import intersection from 'lodash.intersection';
+import shuffle from 'lodash/shuffle';
+import intersection from 'lodash/intersection';
 
-export default getSwipeQueue = function(currentUserId, profiles, preferences, matches) {
+const getSwipeQueue = (currentUserId, profiles, preferences, matches) => {
 
   // is user in candidate's dislikes or matches?
   function isStillViable(userId, candidateMatches) {
@@ -34,7 +34,7 @@ export default getSwipeQueue = function(currentUserId, profiles, preferences, ma
     return false
   }
 
-  allIds = Object.keys(profiles)
+  const allIds = Object.keys(profiles)
 
   const candidateIds = allIds
     .filter(candidateId => isStillViable(currentUserId, matches[candidateId]))
@@ -52,7 +52,7 @@ export default getSwipeQueue = function(currentUserId, profiles, preferences, ma
 
 }
 
-
+export default getSwipeQueue
 // testProfiles = {
 //   1: {
 //     username: 'Kinney1',

@@ -24,7 +24,7 @@ const likeUser = (state, { mainUserId, profileUserId }) => {
 
 const dislikeUser = (state, { mainUserId, profileUserId }) => {
   const newState = _.cloneDeep(state)
-  newState[mainUserId].likes = newState[mainUserId].likes.filter(id => id === profileUserId)
+  newState[mainUserId].dislikes = newState[mainUserId].dislikes.filter(id => id === profileUserId)
   return newState
 }
 

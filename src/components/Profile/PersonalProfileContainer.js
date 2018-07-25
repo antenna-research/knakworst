@@ -4,10 +4,10 @@ import PropTypes from 'prop-types'
 import NavComponent from "../Nav/NavComponent";
 import Profile from "./ProfileCard";
 
-class ProfileContainer extends PureComponent {
+class PersonalProfileContainer extends PureComponent {
   render() {
     return (
-      <div id={'ProfileContainer'}>
+      <div id={'PersonalProfileContainer'}>
       {console.log(this.props.users)}
         <NavComponent/>
         Profile Container
@@ -24,4 +24,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(ProfileContainer)
+export default connect(mapStateToProps)(PersonalProfileContainer)
