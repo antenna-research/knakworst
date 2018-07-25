@@ -1,4 +1,39 @@
+@import '../../../scss-lib/mixin';
+
 #MachesPage {
-  p {
+  $mainPadding: 50px;
+
+  --width: 80%;
+  --maxWidth: 400px;
+
+  @include tablet() {
+    --width: 46%;
+    --maxWidth: 500px;
+
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  @include pc() {
+  }
+
+  .profile-wrapper {
+    padding: $mainPadding;
+    margin: $mainPadding auto;
+    width: var(--width);
+    max-width: var(--maxWidth);
+
+    border: 2px solid rgb(190, 190, 190);
+    background-color: rgb(242, 242, 242);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.09);
+    text-align: center;
+    border-radius: 10px;
+  }
+  .name {
+    margin-bottom: $mainPadding;
+  }
+
+  .button {
+    margin-top: calc(#{$mainPadding} - 2rem);
   }
 }
