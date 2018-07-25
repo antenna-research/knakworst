@@ -11,8 +11,7 @@ package-lock.json
 /build
 
 .importjs.js
-package.json
-yarn.lock
+
 
 # misc
 .DS_Store
