@@ -53,6 +53,7 @@ const getSwipeQueue = (currentUserId, profiles, preferences, matches) => {
 }
 
 export default getSwipeQueue
+
 // testProfiles = {
 //   1: {
 //     username: 'Kinney1',
