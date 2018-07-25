@@ -13,29 +13,25 @@ const MatchesPage = props => (
   <div id="MachesPage">
     {props.matchedUsers.map(user => (
       <Col xs={12} md={5} key={user.id} className="profile-wrapper">
-        <h1 className="name">{user.username}</h1>
-        <p>age: {user.age}</p>
-        <p>location: {user.address}</p>
-        <p>genre(s): {user.genres.map(genre => <span key={genre}>{genre} </span>)}</p>
+        <img src={user.image} alt="" />
+        <div className="info">
+          <h1 className="name">{user.username}</h1>
+          <p>age: {user.age}</p>
 
-        <p>
-          instrument(s):{' '}
-          {user.instruments.map(instrument => <span key={instrument}>{instrument} </span>)}
-        </p>
+          <p>location: {user.address}</p>
+          <p>genre(s): {user.genres.map(genre => <span key={genre}>{genre} </span>)}</p>
 
-        <Link to={`/profile/${user.id}`}>
-          <Button bsStyle="primary" className="button">
-            Profile
-          </Button>
-        </Link>
-        {/* <a
-          href={`https://wa.me/${user.phone.replace(
-            /-/g,
-            ''
-          )}?text=I'm%20matched%20with%20you%20on%20Knakworst`}
-          >
-          <FontAwesomeIcon icon={['fab', 'whatsapp']} size="3x" />
-        </a> */}
+          <p>
+            instrument(s):{' '}
+            {user.instruments.map(instrument => <span key={instrument}>{instrument} </span>)}
+          </p>
+
+          <Link to={`/profile/${user.id}`}>
+            <Button bsStyle="primary" className="button">
+              Profile
+            </Button>
+          </Link>
+        </div>
       </Col>
     ))}
   </div>
