@@ -16,7 +16,8 @@ class ProfileContainer extends PureComponent {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state,props) {
+  console.log(props)
   return {
     users: state.users
   }
