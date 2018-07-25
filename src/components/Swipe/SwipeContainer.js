@@ -51,7 +51,7 @@ class SwipeContainer extends PureComponent {
         {this.props.viableCandidates && 'Loading'}
         {this.state.viableCandidates.length ? (
           <Swipe currentUserId={this.props.currentUserId} profile={this.props.users} currentCandidateId={this.state.currentCandidateId} setLikeUser={this.setLikeUser} setDislikeUser={this.setDislikeUser}/>
-        ): (
+        ) : (
           <h1>No more Musicians match your filter! 😭</h1>
         )}
       </div>
