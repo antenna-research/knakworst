@@ -9,7 +9,8 @@ export default {
     address: 'Amsterdam',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Guitar', 'Piano', 'Bass'],
-    youtube: ['bPQNal63IVI']
+    youtube: ['bPQNal63IVI'],
+    image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
   },
   2: {
     username: 'Tim2',
@@ -21,7 +22,8 @@ export default {
     address: 'Leiden',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Bass'],
-    youtube: ['bPQNal63IVI']
+    youtube: ['bPQNal63IVI'],
+    image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
   },
   3: {
     username: 'hangman',
@@ -33,7 +35,8 @@ export default {
     address: 'Amsterdam',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Piano'],
-    youtube: ['bPQNal63IVI']
+    youtube: ['bPQNal63IVI'],
+    image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
   },
   4: {
     username: 'isa',
@@ -45,7 +48,8 @@ export default {
     address: 'Amsterdam',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Piano'],
-    youtube: ['bPQNal63IVI']
+    youtube: ['bPQNal63IVI'],
+    image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
   },
   5: {
     username: 'things',
@@ -57,7 +61,8 @@ export default {
     address: 'Leiden',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Piano'],
-    youtube: ['bPQNal63IVI']
+    youtube: ['bPQNal63IVI'],
+    image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
   },
   6: {
     username: 'nederlander',
@@ -69,7 +74,8 @@ export default {
     address: 'Amsterdam',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Piano'],
-    youtube: ['bPQNal63IVI']
+    youtube: ['bPQNal63IVI'],
+    image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
   },
   7: {
     username: 'flutist',
@@ -81,6 +87,7 @@ export default {
     address: 'Leiden',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Piano'],
-    youtube: ['bPQNal63IVI']
+    youtube: ['bPQNal63IVI'],
+    image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
   }
 }
