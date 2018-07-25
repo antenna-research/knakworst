@@ -23,7 +23,7 @@ class SwipeContainer extends PureComponent {
       currentCandidateId: viableCandidates[0]
     })
     if (viableCandidates.length === 0){
-    return console.log('no more candidates')}
+      return (<h1>No more Musicians in your area! 😭</h1>)}
   }
 
   // Handles onClick for like and dislike
@@ -48,16 +48,12 @@ class SwipeContainer extends PureComponent {
     return (
       <div id={'SwipeContainer'}>
       <NavComponent/>
-       {!this.props && 'Loading'}
-        <Swipe
-          currentUserId={this.props.currentUserId}
-          profile={this.props.users}
-          likeUser={this.props.likeUser}
-          dislikeUser={this.props.dislikeUser}
-          currentCandidateId={this.state.currentCandidateId}
-          setLikeUser={this.setLikeUser}
-          setDislikeUser={this.setDislikeUser}
-        />
+        {this.props.viableCandidates && 'Loading'}
+        {this.state.viableCandidates.length ? (
+          <Swipe currentUserId={this.props.currentUserId} profile={this.props.users} currentCandidateId={this.state.currentCandidateId} setLikeUser={this.setLikeUser} setDislikeUser={this.setDislikeUser}/>
+        ): (
+          <h1>No more Musicians match your filter! 😭</h1>
+        )}
       </div>
     )
   }
