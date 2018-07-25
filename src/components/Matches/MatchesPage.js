@@ -1,7 +1,9 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import React from 'react'
+
+import PropTypes from 'prop-types'
 
 const tempStyle = {
   border: '2px solid gray',
@@ -35,6 +37,9 @@ const MatchesPage = props =>
         >
           <FontAwesomeIcon icon={['fab', 'whatsapp']} size="3x" />
         </a>
+        <br />
+        <br />
+        <Link to={`/profile/${user.id}`}>Go to profile page</Link>
       </div>
     )
   })
