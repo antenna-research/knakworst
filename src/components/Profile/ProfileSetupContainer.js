@@ -1,17 +1,23 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import ProfileSetup from "./ProfileSetup";
+import { saveProfile } from '../../actions/profile'
 
 class ProfileSetupContainer extends PureComponent {
-  registerProfile = (profileData) => {
-    this.props.dispatch({
-      type: 'REGISTER_PROFILE',
-      payload: profileData
-    })
-  }
+
   render() {
-    return <ProfileSetup registerProfile={this.registerProfile} />
+    let currentUserProfile = this.props.users[parseInt(this.props.currentUserId)]
+    return <ProfileSetup currentUserId={this.props.currentUserId} currentUserProfile={this.props.users[parseInt(this.props.currentUserId)]} saveProfile={this.props.saveProfile} />
+  }
+
+}
+
+
+const mapStateToProps = (state) => {
+  return {
+    currentUserId: state.currentUser,
+    users: state.users
   }
 }
 
-export default connect()(ProfileSetupContainer)
+export default connect(mapStateToProps, { saveProfile })(ProfileSetupContainer)
