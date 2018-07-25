@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import MatchesPageContainer from './components/Matches/MatchesPageContainer'
 import ProfileContainer from './components/Profile/PersonalProfileContainer'
 import SwipeContainer from './components/Swipe/SwipeContainer'
+import ProfileSetupContainer from './components/Profile/ProfileSetupContainer'
 import App from './components/App/App'
 
 export default () => {
@@ -13,6 +14,7 @@ export default () => {
         <Route exact path={'/matches'} component={MatchesPageContainer} />
         <Route exact path={'/profile/:id'} component={ProfileContainer} />
         <Route exact path={'/swipe'} component={SwipeContainer} />
+        <Route exact path={'/profile/edit/1'} component={ProfileSetupContainer}/>
       </div>
     </BrowserRouter>
   )
