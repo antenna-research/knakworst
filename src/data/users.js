@@ -9,7 +9,7 @@ export default {
     address: 'Amsterdam',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Guitar'],
-    youtube: ['ywrWFjX003A']
+    youtube: ['bPQNal63IVI']
   },
   2: {
     username: 'Tim2',
@@ -21,7 +21,7 @@ export default {
     address: 'Leiden',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Bass'],
-    youtube: ['ywrWFjX003A']
+    youtube: ['bPQNal63IVI']
   },
   3: {
     username: 'hangman',
@@ -33,7 +33,7 @@ export default {
     address: 'Leiden',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Piano'],
-    youtube: ['ywrWFjX003A']
+    youtube: ['bPQNal63IVI']
   },
   4: {
     username: 'isa',
@@ -45,7 +45,7 @@ export default {
     address: 'Amsterdam',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Piano'],
-    youtube: ['ywrWFjX003A']
+    youtube: ['bPQNal63IVI']
   },
   5: {
     username: 'things',
@@ -57,7 +57,7 @@ export default {
     address: 'Leiden',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Piano'],
-    youtube: ['ywrWFjX003A']
+    youtube: ['bPQNal63IVI']
   },
   6: {
     username: 'nederlander',
@@ -69,7 +69,7 @@ export default {
     address: 'Amsterdam',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Piano'],
-    youtube: ['ywrWFjX003A']
+    youtube: ['bPQNal63IVI']
   },
   7: {
     username: 'flutist',
@@ -81,6 +81,6 @@ export default {
     address: 'Leiden',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Piano'],
-    youtube: ['ywrWFjX003A']
+    youtube: ['bPQNal63IVI']
   }
 }
