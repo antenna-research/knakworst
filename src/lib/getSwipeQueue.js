@@ -47,6 +47,7 @@ const getSwipeQueue = (currentUserId, profiles, preferences, matches) => {
     .filter(candidateId => locationMatches(profiles[candidateId], preferences[currentUserId]))
     .filter(candidateId => ageMatches(profiles[candidateId], preferences[currentUserId]))
     .filter(candidateId => ageMatches(profiles[currentUserId], preferences[candidateId]))
+    .filter(candidateId => candidateId !== currentUserId)
 
   return shuffle(candidateIds)
 
