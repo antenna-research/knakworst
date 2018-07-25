@@ -1,0 +1,13 @@
+#Profile-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 40vw;
+    height: 60vh;
+    margin: 5vh 25vw 5vh 25vw;
+    overflow: auto;
+    padding: 2em;
+}

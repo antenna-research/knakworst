@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import NavComponent from "../Nav/NavComponent";
-import Profile from "./Profile";
+import Profile from "./ProfileCard";
 
 class ProfileContainer extends PureComponent {
   render() {
@@ -11,7 +11,7 @@ class ProfileContainer extends PureComponent {
       {console.log(this.props.users)}
         <NavComponent/>
         Profile Container
-        <Profile profile={this.props.users} userId={'1'}/>
+        <Profile profile={this.props.users} userId={this.props.currentUser}/>
       </div>
     )
   }
@@ -19,7 +19,8 @@ class ProfileContainer extends PureComponent {
 
 function mapStateToProps(state) {
   return {
-    users: state.users
+    users: state.users,
+    currentUser: state.currentUser
   }
 }
 
