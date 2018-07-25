@@ -8,7 +8,7 @@ export default {
     email: 'Kinney@gmail.com',
     address: 'Amsterdam',
     genres: ['Rock', 'Jazz', 'Pop'],
-    instruments: ['Guitar'],
+    instruments: ['Guitar', 'Piano', 'Bass'],
     youtube: ['bPQNal63IVI']
   },
   2: {
@@ -30,7 +30,7 @@ export default {
     age: 23,
     phone: '974-566-3144',
     email: 'Isabella@gmail.com',
-    address: 'Leiden',
+    address: 'Amsterdam',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Piano'],
     youtube: ['bPQNal63IVI']

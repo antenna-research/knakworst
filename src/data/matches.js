@@ -8,7 +8,7 @@ export default {
   2: {
     likes: [],
     dislikes: [5, 6, 7],
-    matches: [1]
+    matches: [3]
   },
   3: {
     likes: [],

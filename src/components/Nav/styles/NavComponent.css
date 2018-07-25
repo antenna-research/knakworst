@@ -10,7 +10,7 @@
 .NavComponent-Link:link,
 .NavComponent-Link:active {
     text-decoration: none;
-    color: mediumpurple;
+    color: slategrey;
 }
 
 #NavComponent div {
