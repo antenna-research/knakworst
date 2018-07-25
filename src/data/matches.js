@@ -5,13 +5,13 @@ export default {
     matches: [2, 3]
   },
   2: {
-    likes: [1],
+    likes: [3],
     dislikes: [5, 6, 7],
-    matches: [1]
+    matches: [3]
   },
   3: {
-    likes: [1],
+    likes: [2],
     dislikes: [5, 6, 7],
-    matches: [1]
+    matches: [2]
   }
 }
