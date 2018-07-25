@@ -1,17 +1,20 @@
 import React from 'react'
+import './styles/Swipe.css'
 import Profile from "../Profile/ProfileCard";
-
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 
 export default function swipe(props) {
   return (
     <div id={'swipe'}>
       {!props.currentUserId && !props.currentCandidateId && 'Loading'}
-      <h1>Swipe page is rendered</h1>
       <Profile profile={props.profile} userId={props.currentCandidateId}/>
-       <button onClick={() => props.setDislikeUser(props.currentUserId, props.currentCandidateId)}>Dislike</button>
-      <button onClick={() => props.setLikeUser(props.currentUserId, props.currentCandidateId)}>Like</button>
+      <button className={'swipe-button'} onClick={() => props.setDislikeUser(props.currentUserId, props.currentCandidateId)}>
+        <FontAwesomeIcon icon={'times-circle'} size="3x" />
+      </button>
+      <button className={'swipe-button'} onClick={() => props.setLikeUser(props.currentUserId, props.currentCandidateId)}>
+        <FontAwesomeIcon icon={'heart'} size="3x" />
+      </button>
     </div>
-   
 
   )
 }
