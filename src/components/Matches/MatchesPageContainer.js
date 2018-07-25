@@ -17,7 +17,7 @@ class MatchesPageContainer extends PureComponent {
 }
 
 const mapStateToProps = state => {
-  const currentUserId = 1
+  const currentUserId = state.currentUser
   const ids = state.matches[currentUserId].matches
   const matchedUsers = state.matches[currentUserId].matches.map((id, i) => {
     return {
