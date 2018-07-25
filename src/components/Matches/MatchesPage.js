@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import Button from 'react-bootstrap/lib/Button'
 import React from 'react'
 
+import './styles/MatchesPage.scss'
+
 import PropTypes from 'prop-types'
 
 const tempStyle = {
@@ -20,9 +22,8 @@ const MatchesPage = props => (
       {props.matchedUsers.map(user => (
         <Col sm={6} md={3} key={user.id} style={tempStyle} id="MachesPage">
           <Link to={`/profile/${user.id}`}>
-            <Button bsStyle="primary">See Profile</Button>
+            <Button bsStyle="primary">Profile</Button>
           </Link>
-
           <h1>{user.username}</h1>
           <p>age: {user.age}</p>
           <p>place: {user.address}</p>
