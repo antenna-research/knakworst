@@ -17,7 +17,7 @@ const likeUser = (state, { mainUserId, profileUserId }) => {
 
   newState[mainUserId].likes = [...newState[mainUserId].likes, profileUserId]
 
-  updateMatches(state, mainUserId, profileUserId)
+  updateMatches(newState, mainUserId, profileUserId)
 
   return newState
 }
