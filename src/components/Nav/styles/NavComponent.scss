@@ -1,0 +1,22 @@
+#NavComponent {
+    display: flex;
+    justify-content: space-between;
+
+    .NavComponent-Link,
+    .NavComponent-Link:focus,
+    .NavComponent-Link:hover,
+    .NavComponent-Link:visited,
+    .NavComponent-Link:link,
+    .NavComponent-Link:active {
+        text-decoration: none;
+        color: var(--dutchorange);
+        & :hover {
+            color: var(--darkerorange)
+        }
+    }
+
+    & div {
+        margin: 1em 1em 4em 1em;
+    }
+}
+
