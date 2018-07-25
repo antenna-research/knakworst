@@ -1,22 +1,21 @@
-
 export default {
   1: {
     likes: [],
-    dislikes: [7],
-    matches: [2, 3]
+    dislikes: ['7'],
+    matches: [1, 2, 3]
   },
   2: {
-    likes: [],
-    dislikes: [5, 6, 7],
-    matches: [3]
+    likes: ['1'],
+    dislikes: ['5', '6', '7'],
+    matches: []
   },
   3: {
     likes: [],
     dislikes: [],
-    matches: [1]
+    matches: []
   },
   4: {
-    likes: [],
+    likes: ['1'],
     dislikes: [],
     matches: []
   },
@@ -26,7 +25,7 @@ export default {
     matches: []
   },
   6: {
-    likes: [],
+    likes: ['1'],
     dislikes: [],
     matches: []
   },
