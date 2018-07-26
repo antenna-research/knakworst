@@ -19,7 +19,8 @@ class PersonalProfileContainer extends PureComponent {
 
 function mapStateToProps(state, props) {
   return {
-    currentUser: state.users[props.match.params.id]
+    currentUser: state.currentUser,
+    viewedUser: state.users[props.match.params.id]
   }
 }
 

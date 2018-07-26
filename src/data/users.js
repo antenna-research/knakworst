@@ -22,7 +22,7 @@ export default {
     address: 'Leiden',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Bass'],
-    youtube: ['bPQNal63IVI'],
+    youtube: ['ii63fKLTSuU'],
     image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
   },
   3: {
@@ -35,7 +35,7 @@ export default {
     address: 'Amsterdam',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Piano'],
-    youtube: ['bPQNal63IVI'],
+    youtube: ['qyy8bEDi1Eg'],
     image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
   },
   4: {
@@ -48,7 +48,7 @@ export default {
     address: 'Amsterdam',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Piano'],
-    youtube: ['bPQNal63IVI'],
+    youtube: ['yTTrXAE7OPU'],
     image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
   },
   5: {
@@ -61,7 +61,7 @@ export default {
     address: 'Leiden',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Piano'],
-    youtube: ['bPQNal63IVI'],
+    youtube: ['eEQrIGMkDec'],
     image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
   },
   6: {
@@ -74,7 +74,7 @@ export default {
     address: 'Amsterdam',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Piano'],
-    youtube: ['bPQNal63IVI'],
+    youtube: ['yTTrXAE7OPU'],
     image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
   },
   7: {
@@ -84,10 +84,10 @@ export default {
     age: 23,
     phone: '974-566-3144',
     email: 'frank@gmail.com',
-    address: 'Leiden',
+    address: 'Rotterdam',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Piano'],
-    youtube: ['bPQNal63IVI'],
+    youtube: ['qyy8bEDi1Eg'],
     image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
   }
 }
