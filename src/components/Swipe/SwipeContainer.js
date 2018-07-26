@@ -1,20 +1,18 @@
-import React, { PureComponent } from 'react'
-import { connect } from 'react-redux'
-import { likeUser, dislikeUser } from '../../actions/swipe'
 import './styles/SwipeContainer.scss'
+
+import { connect } from 'react-redux'
+import NotificationSystem from 'react-notification-system'
+import React, { PureComponent } from 'react'
+
+import { checkAuth } from '../../actions/authentication'
+import { likeUser, dislikeUser } from '../../actions/swipe'
+import NavComponent from '../Nav/NavComponent'
 import Swipe from './Swipe'
 import getSwipeQueue from '../../lib/getSwipeQueue'
-import NavComponent from '../Nav/NavComponent'
-import NotificationSystem from 'react-notification-system'
 
 class SwipeContainer extends PureComponent {
   state = {
-    viableCandidates: getSwipeQueue(
-      this.props.currentUserId,
-      this.props.users,
-      this.props.preferences,
-      this.props.matches
-    ),
+    viableCandidates: null,
     currentCandidateId: null
   }
 
@@ -29,17 +27,36 @@ class SwipeContainer extends PureComponent {
   }
 
   componentDidMount() {
+    console.log('[didmount]')
+    this.props.checkAuth()
+
     this._notificationSystem = this.refs.notificationSystem
+    console.log('props.match', this.props.matches)
 
-    this._matches = this.props.matches[this.props.currentUserId].matches
+    this._matches = Object.keys(this.props.matches).length
+      ? this.props.matches[this.props.currentUserId].matches
+      : []
 
+    const viableCandidates = getSwipeQueue(
+      this.props.currentUserId,
+      this.props.users,
+      this.props.preferences,
+      this.props.matches
+    )
     this.setState({
-      currentCandidateId: this.state.viableCandidates[0]
+      currentCandidateId: this.state.viableCandidates ? this.state.viableCandidates[0] : [],
+      viableCandidates
     })
   }
 
   componentDidUpdate = () => {
-    const updatedMatch = this.props.matches[this.props.currentUserId].matches
+    console.log('[update]')
+    // const updatedMatch = this.props.matches[this.props.currentUserId].matches
+    const updatedMatch = Object.keys(this.props.matches).length
+      ? this.props.matches[this.props.currentUserId].matches
+      : []
+
+    console.log(this.props.currentUserId)
     const lastUserId = updatedMatch[updatedMatch.length - 1]
     const isMatch = !this._matches.includes(lastUserId)
 
@@ -81,6 +98,7 @@ class SwipeContainer extends PureComponent {
   }
 
   render() {
+    if (!this.props.isAuth) return null
     return (
       <div id={'SwipeContainer'}>
         <NavComponent />
@@ -111,11 +129,12 @@ function mapStateToProps(state) {
     users: state.users,
     currentUserId: state.currentUser,
     matches: state.matches,
-    preferences: state.preferences
+    preferences: state.preferences,
+    isAuth: state.authenticatoin && state.authenticatoin.isAuth
   }
 }
 
 export default connect(
   mapStateToProps,
-  { likeUser, dislikeUser }
+  { likeUser, dislikeUser, checkAuth }
 )(SwipeContainer)

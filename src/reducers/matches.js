@@ -1,6 +1,7 @@
 import _ from 'lodash'
 
 import { DISLIKE_USER, LIKE_USER } from '../actions/swipe'
+import { SET_MATCHES } from '../actions/matches'
 import matches from '../data/matches'
 
 const updateMatches = (state, mainUserId, profileUserId) => {
@@ -28,12 +29,16 @@ const dislikeUser = (state, { mainUserId, profileUserId }) => {
   return newState
 }
 
-const reducer = (state = matches, { type, payload } = {}) => {
+const reducer = (state = {}, { type, payload } = {}) => {
   switch (type) {
     case LIKE_USER:
       return likeUser(state, payload)
     case DISLIKE_USER:
       return dislikeUser(state, payload)
+    case SET_MATCHES:
+      return {
+        ...payload.matches
+      }
     default:
       return state
   }

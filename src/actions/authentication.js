@@ -1,9 +1,15 @@
-import firebase from 'firebase'
+import { SET_MATCHES } from './matches'
+import firebase from '../firebase/settings'
+import usersData from '../data/users'
+import matchesData from '../data/matches'
+import preferencesData from '../data/preferences'
 
 export const CREATE_USER = 'CREATE_USER'
 export const LOGIN_USER = 'LOGIN_USER'
 export const SET_USER = 'SET_USER'
-export const CHECK_AUTH = 'CHECK_AUTH'
+export const AUTH_VERIFIED = 'AUTH_VERIFIED'
+export const SET_USERS = 'SET_USERS'
+// export const FETCH_DATA = 'FETCH_DATA'
 
 export const createUser = ({ email, password }) => {
   return async dispatch => {
@@ -20,7 +26,8 @@ export const createUser = ({ email, password }) => {
       dispatch({
         type: SET_USER,
         payload: {
-          userId: res.user.uid
+          userId: res.user.uid,
+          isAuth: true
         }
       })
     } catch (e) {
@@ -33,7 +40,13 @@ export const loginUser = () => {
   return async dispatch => {
     try {
       console.log('login')
-      console.log(firebase.auth().currentUser.uid)
+      const data = await firebase
+        .auth()
+        .signInWithEmailAndPassword('email407944@email.com', 'ashtasht')
+      dispatch({
+        type: LOGIN_USER,
+        payload: { isAuth: true, userId: data.user.uid }
+      })
     } catch (e) {
       console.log(e.message)
     }
@@ -41,15 +54,28 @@ export const loginUser = () => {
 }
 
 export const checkAuth = () => {
-  return async dispatch => {
-    firebase.auth().onAuthStateChanged(user => {
+  return async (dispatch, getState) => {
+    console.log('check auth')
+    console.log(firebase.auth().currentUser)
+    firebase.auth().onAuthStateChanged(async user => {
       if (user) {
         console.log('user is logged in')
+        // console.log(getState().matches)
+        // setTimeout(() => {
+        //   dispatch({
+        //     type: SET_MATCHES,
+        //     payload: {
+        //       users: usersData
+        //     }
+        //   })
+        // }, 1000)
+        // const token = await user.getIdTokenResult().then(res => res.token)
         dispatch({
-          type: SET_USER,
-          payload: {
-            userId: user.uid
-          }
+          type: AUTH_VERIFIED
+        })
+        dispatch({
+          type: LOGIN_USER,
+          payload: { userId: user.uid }
         })
       } else {
         console.log('no user')
@@ -58,12 +84,48 @@ export const checkAuth = () => {
   }
 }
 
-export const checkdb = () => {
+export const fetchData = () => {
+  return async dispatch => {
+    const usersRequest = firebase
+      .database()
+      .ref('/users/')
+      .once('value')
+      .then(res => res.val())
+    const matchesRequest = firebase
+      .database()
+      .ref('/matches/')
+      .once('value')
+      .then(res => res.val())
+
+    const [users, matches] = await Promise.all([usersRequest, matchesRequest])
+
+    dispatch({
+      type: SET_MATCHES,
+      payload: {
+        matches
+      }
+    })
+
+    dispatch({
+      type: SET_USERS,
+      payload: {
+        users
+      }
+    })
+  }
+}
+
+export const resetDatabase = () => {
   return async dispatch => {
     const user = firebase.auth().currentUser
     if (user) {
       console.log('db')
       const resFromUers = firebase
+        .database()
+        .ref('users/')
+        .set(usersData)
+
+      const resFromUers2 = firebase
         .database()
         .ref('users/' + user.uid)
         .set({
@@ -79,7 +141,13 @@ export const checkdb = () => {
           youtube: ['bPQNal63IVI'],
           image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
         })
+
       const resFromMatches = firebase
+        .database()
+        .ref('matches/')
+        .set(matchesData)
+
+      const resFromMatches2 = firebase
         .database()
         .ref('matches/' + user.uid)
         .set({
@@ -89,6 +157,10 @@ export const checkdb = () => {
         })
 
       const resFromPreferences = firebase
+        .database()
+        .ref('preferences/')
+        .set(preferencesData)
+      const resFromPreferences2 = firebase
         .database()
         .ref('preferences/' + user.uid)
         .set({
@@ -100,9 +172,14 @@ export const checkdb = () => {
             max: 40
           }
         })
-      await Promise.all([resFromUers, resFromMatches, resFromPreferences]).catch(e =>
-        console.log(e)
-      )
+      await Promise.all([
+        resFromUers,
+        resFromUers2,
+        resFromMatches,
+        resFromMatches2,
+        resFromPreferences,
+        resFromPreferences2
+      ]).catch(e => console.log(e))
       console.log('done')
     }
   }
