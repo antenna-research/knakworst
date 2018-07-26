@@ -11,7 +11,7 @@ class PersonalProfileContainer extends PureComponent {
       <div id={'PersonalProfileContainer'}>
         <NavComponent />
         <Link to={`/profile/edit/${this.props.match.params.id}`}><FontAwesomeIcon icon="user-edit" /></Link>
-        <Profile profile={this.props.currentUser} />
+        <Profile profile={this.props.viewedUser} />
       </div>
     )
   }
