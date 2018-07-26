@@ -7,8 +7,6 @@ import {updatePreferences} from '../../actions/updatePreferences'
 class EditPreferencesPageContainer extends  PureComponent {
 
   sendNewPrefences = (newPreferences) => {
-    console.log(this.props)
-    console.log(this.props.currentUser, newPreferences)
     this.props.updatePreferences(this.props.currentUser, newPreferences)
   }
 
@@ -22,12 +20,6 @@ class EditPreferencesPageContainer extends  PureComponent {
   }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     updatePreferences: (newPreferences) => dispatch(updatePreferences(newPreferences))
-//   }
-// }
-
 const mapStateToProps = state => {
   return {
     currentUser: state.currentUser,
@@ -36,5 +28,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {updatePreferences})(EditPreferencesPageContainer)
-
-//

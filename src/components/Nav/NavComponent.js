@@ -26,7 +26,7 @@ class NavComponent extends PureComponent {
         </NavLink>
         <NavLink to={'/preferences'} className={'NavComponent-Link'} activeStyle={{}}>
           <div id={'NavComponent-Edit-Profile'}>
-            <FontAwesomeIcon icon="sliders-h" />
+            <FontAwesomeIcon icon="sliders-h"/>
           </div>
         </NavLink>
       </div>
