@@ -1,6 +1,5 @@
 import '../firebase/settings.js'
 
-// import axios from 'axios'
 import firebase from 'firebase'
 
 export const CREATE_USER = 'CREATE_USER'
@@ -66,18 +65,47 @@ export const checkdb = () => {
     const user = firebase.auth().currentUser
     if (user) {
       console.log('db')
-      firebase
+      const resFromUers = firebase
         .database()
-        .ref('something/' + user.uid)
+        .ref('users/' + user.uid)
         .set({
-          username: 'name',
-          email: 'email',
-          matches: {
-            likes: ['1', '2', '3'],
-            dislikes: [],
-            matches: ['1', '2', '3']
+          username: 'Kinney1',
+          firstName: 'Kinney',
+          lastName: 'Tate',
+          age: 20,
+          phone: '974-566-3044',
+          email: 'Kinney@gmail.com',
+          address: 'Amsterdam',
+          genres: ['Rock', 'Jazz', 'Pop'],
+          instruments: ['Guitar', 'Piano', 'Bass'],
+          youtube: ['bPQNal63IVI'],
+          image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
+        })
+      const resFromMatches = firebase
+        .database()
+        .ref('matches/' + user.uid)
+        .set({
+          likes: ['1', '2', '3'],
+          dislikes: [],
+          matches: ['1', '2', '3']
+        })
+
+      const resFromPreferences = firebase
+        .database()
+        .ref('preferences/' + user.uid)
+        .set({
+          genres: ['Rock', 'Jazz', 'Funk', 'Classic'],
+          instruments: ['Piano', 'Bass', 'Flute'],
+          locations: ['Amsterdam', 'Leiden'],
+          age: {
+            min: 18,
+            max: 40
           }
         })
+      await Promise.all([resFromUers, resFromMatches, resFromPreferences]).catch(e =>
+        console.log(e)
+      )
+      console.log('done')
     }
   }
 }
