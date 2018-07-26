@@ -3,6 +3,7 @@ import './styles/ProfileSetup.css'
 import NavComponent from "../Nav/NavComponent";
 import { connect } from 'react-redux'
 import { saveProfile } from '../../actions/profile'
+import { withRouter } from 'react-router-dom'
 
 class ProfileSetup extends PureComponent {
   state = {}
@@ -44,6 +45,9 @@ class ProfileSetup extends PureComponent {
         youtube: this.state.youtube ? this.state.youtube.split('watch?v=')[1].split('&')[0] : currentUserProfile.youtube,
       }
       this.props.saveProfile( updatedProfileData, this.props.currentUserId )
+
+      this.props.history.push('/profile/'+this.props.currentUserId)
+
     }
 
   }
@@ -126,4 +130,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { saveProfile })(ProfileSetup)
+export default connect(mapStateToProps, { saveProfile })(withRouter(ProfileSetup))
