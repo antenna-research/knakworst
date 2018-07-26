@@ -1,8 +1,9 @@
 export const SAVE_PROFILE = 'SAVE_PROFILE'
 
-export function saveProfile(profileData) {
-  return {
-    type: SAVE_PROFILE,
-    payload: profileData
-  }
+export const saveProfile = (profileData) => {
+	console.log('profileData', profileData)
+	return {
+	  type: SAVE_PROFILE,
+	  payload: profileData
+	}
 }
