@@ -16,20 +16,19 @@ const MatchesPage = props => (
         <img src={user.image} alt="" />
         <div className="info">
           <h1 className="name">{user.username}</h1>
-          <p>age: {user.age}</p>
+          <div className="details">
+            <p>age: {user.age}</p>
+            <p>location: {user.address}</p>
+            <p>genre(s): {user.genres.map(genre => <span key={genre}>{genre} </span>)}</p>
 
-          <p>location: {user.address}</p>
-          <p>genre(s): {user.genres.map(genre => <span key={genre}>{genre} </span>)}</p>
-
-          <p>
-            instrument(s):{' '}
-            {user.instruments.map(instrument => <span key={instrument}>{instrument} </span>)}
-          </p>
+            <p>
+              instrument(s):{' '}
+              {user.instruments.map(instrument => <span key={instrument}>{instrument} </span>)}
+            </p>
+          </div>
 
           <Link to={`/profile/${user.id}`}>
-            <Button bsStyle="primary" className="button">
-              Profile
-            </Button>
+            <Button className="button">Profile</Button>
           </Link>
         </div>
       </Col>
