@@ -6,6 +6,7 @@ import firebase from 'firebase'
 export const CREATE_USER = 'CREATE_USER'
 export const LOGIN_USER = 'LOGIN_USER'
 export const SET_USER = 'SET_USER'
+export const CHECK_AUTH = 'CHECK_AUTH'
 
 export const createUser = ({ email, password }) => {
   return async dispatch => {
@@ -39,5 +40,22 @@ export const loginUser = () => {
     } catch (e) {
       console.log(e.message)
     }
+  }
+}
+
+export const checkAuth = () => {
+  return async dispatch => {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        dispatch({
+          type: SET_USER,
+          payload: {
+            userId: user.uid
+          }
+        })
+      } else {
+        console.log('no user')
+      }
+    })
   }
 }
