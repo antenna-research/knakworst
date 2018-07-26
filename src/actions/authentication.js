@@ -47,6 +47,7 @@ export const checkAuth = () => {
   return async dispatch => {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
+        console.log('user is logged in')
         dispatch({
           type: SET_USER,
           payload: {
@@ -57,5 +58,26 @@ export const checkAuth = () => {
         console.log('no user')
       }
     })
+  }
+}
+
+export const checkdb = () => {
+  return async dispatch => {
+    const user = firebase.auth().currentUser
+    if (user) {
+      console.log('db')
+      firebase
+        .database()
+        .ref('something/' + user.uid)
+        .set({
+          username: 'name',
+          email: 'email',
+          matches: {
+            likes: ['1', '2', '3'],
+            dislikes: [],
+            matches: ['1', '2', '3']
+          }
+        })
+    }
   }
 }

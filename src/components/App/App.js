@@ -1,3 +1,5 @@
+import { checkdb } from '../../actions/authentication'
+
 import './styles/App.scss'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -47,6 +49,8 @@ class App extends Component {
         <Link to={'/signup'}>
           <button>Sign Up</button>
         </Link>
+
+        <button onClick={this.props.checkdb}>Something</button>
       </div>
     )
   }
@@ -54,5 +58,5 @@ class App extends Component {
 
 export default connect(
   null,
-  { checkAuth }
+  { checkdb, checkAuth }
 )(App)
