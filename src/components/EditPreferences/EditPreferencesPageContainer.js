@@ -14,7 +14,7 @@ class EditPreferencesPageContainer extends  PureComponent {
     return (
       <div>
         <NavComponent />
-        <EditPreferencesPage currentUser={this.props.currentUser} preferences={this.props.preferences} updatePreferences={updatePreferences} sendNewPrefences={this.sendNewPreferences}/>
+        <EditPreferencesPage currentUser={this.props.currentUser} preferences={this.props.preferences} updatePreferences={updatePreferences} sendNewPreferences={this.sendNewPreferences}/>
       </div>
     )
   }

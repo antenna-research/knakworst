@@ -8,7 +8,6 @@ class MatchesPageContainer extends PureComponent {
     return (
       <div id={'MatchesPageContainer'}>
         <NavComponent />
-        Matches Page Container!
         <MatchesPage matchedUsers={this.props.matchedUsers} />
       </div>
     )
