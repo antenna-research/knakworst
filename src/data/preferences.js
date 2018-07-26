@@ -1,7 +1,7 @@
 export default {
   1: {
-    genres: ['Rock', 'Jazz', 'Funk'],
-    instruments: ['Flute', 'Bass'],
+    genres: ['Rock', 'Jazz', 'Funk', 'Classic'],
+    instruments: ['Piano', 'Bass', 'Flute'],
     locations: ['Amsterdam', 'Leiden'],
     age: {
       min: 18,
