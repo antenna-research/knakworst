@@ -15,11 +15,10 @@ class ProfileSetup extends PureComponent {
   }
 
   handleSubmit = (e) => {
-    e.preventDefault()
 
+    e.preventDefault()
     const currentUserProfile = this.props.users[parseInt(this.props.currentUserId)]
     if (this.state && this.state !== undefined) {
-
       const updatedProfileData = {
         id: this.props.currentUserId,
         username: this.state.username ? this.state.username : currentUserProfile.username,
@@ -31,6 +30,7 @@ class ProfileSetup extends PureComponent {
         address: this.state.address ? this.state.address : currentUserProfile.address,
         instruments: this.state.instruments ? this.state.instruments : currentUserProfile.instruments,
         genres: this.state.genres ? this.state.genres : currentUserProfile.genres,
+        youtube: this.state.youtube ? this.state.youtube.split('watch?v=')[1].split('&')[0] : currentUserProfile.youtube,
       }
       this.props.saveProfile( updatedProfileData, this.props.currentUserId )
     }
