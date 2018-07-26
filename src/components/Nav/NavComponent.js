@@ -1,7 +1,7 @@
-import './styles/NavComponent.css'
+import './styles/NavComponent.scss'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import React, { PureComponent } from 'react'
 
@@ -9,26 +9,26 @@ class NavComponent extends PureComponent {
   render() {
     return (
       <div id={'NavComponent'}>
-        <Link to={`/profile/${this.props.currentUser}`} className={'NavComponent-Link'}>
+        <NavLink to={`/profile/${this.props.currentUser}`} className={'NavComponent-Link'} activeStyle={{}}>
           <div id={'NavComponent-Profile'}>
-            <FontAwesomeIcon icon="user-circle" size="3x" />
+            <FontAwesomeIcon icon="user-circle" />
           </div>
-        </Link>
-        <Link to={'/swipe'} className={'NavComponent-Link'}>
+        </NavLink>
+        <NavLink to={'/swipe'} className={'NavComponent-Link'} activeStyle={{}}>
           <div id={'NavComponent-Swipe'}>
-            <FontAwesomeIcon icon="music" size="3x" />
+            <FontAwesomeIcon icon="music" />
           </div>
-        </Link>
-        <Link to={'/matches'} className={'NavComponent-Link'}>
+        </NavLink>
+        <NavLink to={'/matches'} className={'NavComponent-Link'} activeStyle={{}}>
           <div id={'NavComponent-Matches'}>
-            <FontAwesomeIcon icon="comment" size="3x" />
+            <FontAwesomeIcon icon="comment" />
           </div>
-        </Link>
-        <Link to={'/preferences'} className={'NavComponent-Link'}>
+        </NavLink>
+        <NavLink to={'/preferences'} className={'NavComponent-Link'}>
           <div id={'NavComponent-Edit-Profile'}>
             <FontAwesomeIcon icon="sliders-h" size="3x" />
           </div>
-        </Link>
+        </NavLink>
       </div>
     )
   }

@@ -1,0 +1,31 @@
+@import '../../../scss-lib/mixin';
+@import '../../../scss-lib/var';
+
+#NavComponent {
+  @include flex;
+  justify-content: space-around;
+  align-items: center;
+  @include bottom-boarder-shadow;
+  height: 5em;
+  margin-bottom: 2em;
+
+  .NavComponent-Link,
+  .NavComponent-Link:focus,
+  .NavComponent-Link:hover,
+  .NavComponent-Link:visited,
+  .NavComponent-Link:link,
+  .NavComponent-Link:active {
+    font-size: 2em;
+    text-decoration: none;
+    color: $FONT_COLOR;
+
+  .activeNav{
+    color: $DUTCH_ORANGE
+  }
+}
+  //
+  //& div {
+  //  margin: 1em 1em 4em 1em;
+  //}
+}
+

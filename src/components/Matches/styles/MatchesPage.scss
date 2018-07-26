@@ -1,4 +1,5 @@
 @import '../../../scss-lib/mixin';
+@import '../../../scss-lib/var';
 
 #MachesPage {
   $mainPadding: 50px;
@@ -10,7 +11,7 @@
     --width: 46%;
     --maxWidth: 500px;
 
-    display: flex;
+    @include flex;
     justify-content: space-around;
     flex-wrap: wrap;
   }
@@ -36,8 +37,21 @@
     margin-bottom: $mainPadding/2;
   }
 
+  .details {
+    font-size: 0.9rem;
+    color: lighten($FONT_COLOR, 15%);
+  }
+
   .button {
     margin-top: calc(#{$mainPadding} - 2rem);
+  }
+  .btn-default {
+    background-color: $DUTCH_ORANGE;
+    color: white;
+    transition: $TRANSITION;
+    &:hover {
+      background-color: lighten($DUTCH_ORANGE, 15%);
+    }
   }
 
   img {

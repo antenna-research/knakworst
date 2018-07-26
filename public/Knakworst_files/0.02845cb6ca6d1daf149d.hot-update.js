@@ -2,7 +2,7 @@ webpackHotUpdate(0,{
 
 /***/ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./src/components/Profile/styles/ProfileCard.css":
 /*!*********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader?{"importLoaders":1}!./node_modules/postcss-loader/lib?{"ident":"postcss","plugins":[null,null]}!./src/components/Profile/styles/ProfileCard.css ***!
+  !*** ./node_modules/css-loader?{"importLoaders":1}!./node_modules/postcss-loader/lib?{"ident":"postcss","plugins":[null,null]}!./src/components/Profile/styles/ProfileCard.scss ***!
   \*********************************************************************************************************************************************************************************/
 /*! dynamic exports provided */
 /*! all exports used */

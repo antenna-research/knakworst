@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles/ProfileCard.css'
+import './styles/ProfileCard.scss'
 
 export default function ProfileCard({ profile }) {
   // const currentUser = props.profile[props.userId]
@@ -10,7 +10,7 @@ export default function ProfileCard({ profile }) {
     <div id={'Profile-component'}>
       <div id={'Profile-card'}>
         {!profile && 'Loading'}
-        <div class="profile-video">
+        <div class='profile-video'>
           <iframe
             src="https://www.youtube.com/embed/{ props.user.profile.youtube }"
             frameborder="0"

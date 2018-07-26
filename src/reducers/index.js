@@ -4,12 +4,10 @@ import currentUserReducer from './currentUser'
 import usersReducer from './users'
 import preferencesReducer from './preferences'
 import matchesReducer from './matches'
-import currentUser from './currentUser'
 
 export default combineReducers({
   currentUser: currentUserReducer,
   users: usersReducer,
   preferences: preferencesReducer,
-  matches: matchesReducer,
-  currentUser,
+  matches: matchesReducer
 })
