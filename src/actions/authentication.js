@@ -1,5 +1,3 @@
-import '../firebase/settings.js'
-
 import firebase from 'firebase'
 
 export const CREATE_USER = 'CREATE_USER'
