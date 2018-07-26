@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import NavComponent from '../Nav/NavComponent'
 import Profile from './ProfileCard'
@@ -10,6 +11,7 @@ class PersonalProfileContainer extends PureComponent {
       <div id={'PersonalProfileContainer'}>
         <NavComponent />
         Profile Container
+        <Link to={`/profile/edit/${this.props.match.params.id}`}>Edit Profile</Link>
         <Profile profile={this.props.currentUser} />
       </div>
     )
