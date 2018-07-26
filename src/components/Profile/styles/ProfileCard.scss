@@ -7,7 +7,8 @@
   --width: 80%;
   --maxWidth: 600px;
   max-height: 70vh;
-  max-width: 70vw;
+  max-width: 600px;
+  margin: 2em;
 
   @include tablet() {
     --width: 46%;
@@ -62,8 +63,12 @@
     min-width: 50px;
     border-radius: 50%;
     border: none;
-    .Bass {background-position: -342px -143px;}
-    .Guitar {background-position: -390px -562px;}
     .Piano {background-position: -150px -384px;}
+    .Guitar {background-position: -390px -562px;}
+    .Bass {background-position: -342px -143px;}
+    .Drums {background-position: -91px -141px;}
+    .Flute {background-position: -568px -203px;}
+    .Timpani {background-position: -214px -204px;}
+
   }
 }
