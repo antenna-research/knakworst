@@ -11,6 +11,7 @@ package-lock.json
 /build
 
 .importjs.js
+src/firebase/settings.js
 
 
 # misc
@@ -26,4 +27,3 @@ yarn-error.log*
 
 #IDE
 .idea/
-
