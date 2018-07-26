@@ -32,7 +32,6 @@ class ProfileSetup extends PureComponent {
         instruments: this.state.instruments ? this.state.instruments : currentUserProfile.instruments,
         genres: this.state.genres ? this.state.genres : currentUserProfile.genres,
       }
-      console.log('updatedProfileData', updatedProfileData)
       this.props.saveProfile( updatedProfileData, this.props.currentUserId )
     }
 
