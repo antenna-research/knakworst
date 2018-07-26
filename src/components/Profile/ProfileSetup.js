@@ -5,18 +5,29 @@ import { connect } from 'react-redux'
 import { saveProfile } from '../../actions/profile'
 
 class ProfileSetup extends PureComponent {
+  state = {}
 
   handleChange = (event) => {
     const value = event.target.value
     const name = event.target.name
-    this.setState({
-      [name]: value
-    })
+    if (['instruments', 'genres'].includes(event.target.name)) {
+      if (this.state[event.target.name]) {
+        const x = this.state[event.target.name]
+        this.setState({ [name]: [ ...x, value]   })
+      } else {
+        this.setState({ [name]: [value]  })
+      }
+    } else {
+      this.setState({
+        [name]: value
+      })      
+    }
   }
 
   handleSubmit = (e) => {
 
     e.preventDefault()
+    console.log('this.state.instruments', this.state.instruments)
     const currentUserProfile = this.props.users[parseInt(this.props.currentUserId)]
     if (this.state && this.state !== undefined) {
       const updatedProfileData = {
