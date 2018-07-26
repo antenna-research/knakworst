@@ -26,7 +26,7 @@ class NavComponent extends PureComponent {
         </Link>
         <Link to={'/edit-profile'} className={'NavComponent-Link'}>
           <div id={'NavComponent-Edit-Profile'}>
-            <FontAwesomeIcon icon="user-circle" size="3x" />
+            <FontAwesomeIcon icon="sliders-h" size="3x" />
           </div>
         </Link>
       </div>

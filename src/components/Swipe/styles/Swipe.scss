@@ -1,3 +1,5 @@
+@import '../../../scss-lib/var';
+
 #swipe {
   display: flex;
   flex-direction: column;
@@ -16,12 +18,14 @@
 }
 
 .swipe-button {
-  color: var(--dutchorange);
+  color: $DUTCH_ORANGE;
   background: none;
   border: none;
   font-size: 2em;
   & :hover {
     font-size: 2.1em;
-    color: var(--darkerorange)
+    color: $DARKER_ORANGE;
   }
 }
+
+

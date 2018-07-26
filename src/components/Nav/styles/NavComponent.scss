@@ -1,22 +1,25 @@
+@import '../../../scss-lib/mixin';
+@import '../../../scss-lib/var';
+
 #NavComponent {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 
-    .NavComponent-Link,
-    .NavComponent-Link:focus,
-    .NavComponent-Link:hover,
-    .NavComponent-Link:visited,
-    .NavComponent-Link:link,
-    .NavComponent-Link:active {
-        text-decoration: none;
-        color: var(--dutchorange);
-        & :hover {
-            color: var(--darkerorange)
-        }
+  .NavComponent-Link,
+  .NavComponent-Link:focus,
+  .NavComponent-Link:hover,
+  .NavComponent-Link:visited,
+  .NavComponent-Link:link,
+  .NavComponent-Link:active {
+    text-decoration: none;
+    color: $DUTCH_ORANGE;
+    & :hover {
+        color: darken($DUTCH_ORANGE, 15%);
     }
+  }
 
-    & div {
-        margin: 1em 1em 4em 1em;
-    }
+  & div {
+    margin: 1em 1em 4em 1em;
+  }
 }
 
