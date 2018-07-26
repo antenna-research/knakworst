@@ -2,37 +2,33 @@ import React from 'react'
 import './styles/ProfileCard.scss'
 
 export default function ProfileCard({ profile }) {
-  // const currentUser = props.profile[props.userId]
-  // if (!currentUser) return null
-  // const userId = props.userId
-  // const currentCandidate = props.profile[userId]
   return (
     <div id={'Profile-component'}>
       <div id={'Profile-card'}>
         {!profile && 'Loading'}
-        <div className="profile-video">
+        <div className={"profile-video"}>
           <iframe
-            src="https://www.youtube.com/embed/{ props.user.profile.youtube }"
+            src={ 'https://www.youtube.com/embed/' + profile.youtube }
             frameBorder="0"
             allow="autoplay; encrypted-media"
             allowFullScreen
           />
         </div>
 
-        <h1>{profile.username}</h1>
+        <h1>{profile.username}, {profile.age}</h1>
+        <h2>aka {profile.firstName} {profile.lastName}</h2>
+        <div className={"profile-city"}>{profile.address}</div>
 
-        <ul className="profile-genres">
-          {profile.genres.map((genre, i) => <li key={i}>{genre}</li>)}
+        <ul className={"profile-genres"}>
+          {profile.genres.map((genre, i) => <li key={i} className={"profile-genres"}>{genre}</li>)}
         </ul>
-        <div className="profile-name-age-place">
-          <div className="profile-name">
-            {profile.firstName} {profile.lastName}
+        <div className={"profile-name-age-place"}>
+          <div className={"profile-name"}>
+
           </div>
-          <div className="profile-age">{profile.age}</div>
-          <div className="profile-city">{profile.city}</div>
         </div>
-        <ul className="profile-instruments">
-          {profile.instruments.map((instrument, i) => <li key={i}>{instrument}</li>)}
+        <ul className={"profile-instruments"}>
+          {profile.instruments.map((instrument, i) => <span key={i} className={"profile-instruments " + instrument}></span>)}
         </ul>
       </div>
     </div>

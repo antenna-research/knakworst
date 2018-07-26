@@ -3,23 +3,34 @@ import './styles/ProfileSetup.css'
 import NavComponent from "../Nav/NavComponent";
 import { connect } from 'react-redux'
 import { saveProfile } from '../../actions/profile'
+import { withRouter } from 'react-router-dom'
 
 class ProfileSetup extends PureComponent {
+  state = {}
 
   handleChange = (event) => {
     const value = event.target.value
     const name = event.target.name
-    this.setState({
-      [name]: value
-    })
+    if (['instruments', 'genres'].includes(event.target.name)) {
+      if (this.state[event.target.name]) {
+        const x = this.state[event.target.name]
+        this.setState({ [name]: [ ...x, value]   })
+      } else {
+        this.setState({ [name]: [value]  })
+      }
+    } else {
+      this.setState({
+        [name]: value
+      })      
+    }
   }
 
   handleSubmit = (e) => {
-    e.preventDefault()
 
+    e.preventDefault()
+    console.log('this.state.instruments', this.state.instruments)
     const currentUserProfile = this.props.users[parseInt(this.props.currentUserId)]
     if (this.state && this.state !== undefined) {
-
       const updatedProfileData = {
         id: this.props.currentUserId,
         username: this.state.username ? this.state.username : currentUserProfile.username,
@@ -31,8 +42,12 @@ class ProfileSetup extends PureComponent {
         address: this.state.address ? this.state.address : currentUserProfile.address,
         instruments: this.state.instruments ? this.state.instruments : currentUserProfile.instruments,
         genres: this.state.genres ? this.state.genres : currentUserProfile.genres,
+        youtube: this.state.youtube ? this.state.youtube.split('watch?v=')[1].split('&')[0] : currentUserProfile.youtube,
       }
       this.props.saveProfile( updatedProfileData, this.props.currentUserId )
+
+      this.props.history.push('/profile/'+this.props.currentUserId)
+
     }
 
   }
@@ -115,4 +130,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { saveProfile })(ProfileSetup)
+export default connect(mapStateToProps, { saveProfile })(withRouter(ProfileSetup))
