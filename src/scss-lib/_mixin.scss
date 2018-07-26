@@ -19,8 +19,13 @@ $pc_breakpoint: 1280px;
   display: flex;
 }
 
-@mixin bottom-boarder-shadow() {
-  -webkit-box-shadow:0 0 4px $FONT_COLOR;
-  -moz-box-shadow:0 0 4px $FONT_COLOR;
-  box-shadow:0 0 4px $FONT_COLOR;
+@mixin bottom-border-shadow() {
+  -webkit-box-shadow:0 1px 0 $FONT_COLOR;
+  -moz-box-shadow:0 1px 0 $FONT_COLOR;
+  box-shadow:0 1px 0 $FONT_COLOR;
+}
+
+@mixin div-border-shadow() {
+  border: 1px solid rgb(190, 190, 190);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.09);
 }

@@ -2,17 +2,30 @@
 @import '../../../scss-lib/var';
 
 #Profile-card {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	border: 1px solid black;
-	border-radius: 10px;
-  width: 95vw;
-	height: 60vh;
+  $mainPadding: 50px;
+
+  --width: 80%;
+  --maxWidth: 600px;
+  maxHeight: 50vh;
+
+  @include tablet() {
+    --width: 46%;
+    --maxWidth: 500px;
+
+    @include flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  @include pc() {
+  }
+
 	overflow-y: auto;
   overflow-x: hidden;
 	padding: 2em;
+  @include div-border-shadow;
+  border-radius: 1em;
+
 	iframe {
 			margin-top: 2em;
 	}

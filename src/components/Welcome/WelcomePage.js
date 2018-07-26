@@ -6,10 +6,7 @@ class WelcomePage extends PureComponent {
   render() {
     return (
       <div id={'WelcomePage'}>
-        <h1>Welcome
-          Page</h1>
-        Welcome User! <br/>
-        <Link to={'swipe'}>Start Swiping</Link>
+
       </div>
     )
   }
