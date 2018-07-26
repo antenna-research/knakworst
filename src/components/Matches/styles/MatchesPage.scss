@@ -23,9 +23,7 @@
     margin: $mainPadding auto;
     width: var(--width);
     max-width: var(--maxWidth);
-
-    border: 2px solid rgb(190, 190, 190);
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.09);
+    @include div-border-shadow;
     text-align: center;
     border-radius: 10px;
   }

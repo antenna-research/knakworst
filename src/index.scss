@@ -1,9 +1,12 @@
 @import './scss-lib/mixin';
 @import './scss-lib/var';
-
+html {
+  max-height: 100vh;
+}
 body {
-  margin: 0;
-  padding: 0;
+  max-width: 600px;
+  margin: auto;
+  padding: 0 1em 0 1em;
   font-family: sans-serif;
   color: $FONT_COLOR;
   background-color: rgb(240, 240, 240);

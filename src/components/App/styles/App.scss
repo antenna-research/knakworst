@@ -1,0 +1,13 @@
+@import '../../../scss-lib/mixin';
+@import '../../../scss-lib/var';
+
+.App {
+  height: 100vh;
+  @include flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    color: $DUTCH_ORANGE;
+  }
+}
