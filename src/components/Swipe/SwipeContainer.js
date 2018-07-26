@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import {likeUser, dislikeUser} from '../../actions/swipe'
+import './styles/SwipeContainer.scss'
 import Swipe from './Swipe'
-import { likeUser, dislikeUser } from '../../actions/swipe'
-import NavComponent from '../Nav/NavComponent'
 import getSwipeQueue from '../../lib/getSwipeQueue'
+import NavComponent from '../Nav/NavComponent'
 import NotificationSystem from 'react-notification-system'
 
 class SwipeContainer extends PureComponent {

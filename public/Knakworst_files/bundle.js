@@ -6663,7 +6663,7 @@ exports.push([module.i, "\n", ""]);
 
 /***/ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./src/components/Nav/styles/NavComponent.css":
 /*!******************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader?{"importLoaders":1}!./node_modules/postcss-loader/lib?{"ident":"postcss","plugins":[null,null]}!./src/components/Nav/styles/NavComponent.css ***!
+  !*** ./node_modules/css-loader?{"importLoaders":1}!./node_modules/postcss-loader/lib?{"ident":"postcss","plugins":[null,null]}!./src/components/Nav/styles/NavComponent.scss ***!
   \******************************************************************************************************************************************************************************/
 /*! dynamic exports provided */
 /*! all exports used */
@@ -6683,7 +6683,7 @@ exports.push([module.i, "#NavComponent {\n    display: -ms-flexbox;\n    display
 
 /***/ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./src/components/Profile/styles/ProfileCard.css":
 /*!*********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader?{"importLoaders":1}!./node_modules/postcss-loader/lib?{"ident":"postcss","plugins":[null,null]}!./src/components/Profile/styles/ProfileCard.css ***!
+  !*** ./node_modules/css-loader?{"importLoaders":1}!./node_modules/postcss-loader/lib?{"ident":"postcss","plugins":[null,null]}!./src/components/Profile/styles/ProfileCard.scss ***!
   \*********************************************************************************************************************************************************************************/
 /*! dynamic exports provided */
 /*! all exports used */
@@ -6703,7 +6703,7 @@ exports.push([module.i, "#Profile-card {\n    display: -ms-flexbox;\n    display
 
 /***/ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./src/index.css":
 /*!***************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader?{"importLoaders":1}!./node_modules/postcss-loader/lib?{"ident":"postcss"}!./src/index.css ***!
+  !*** ./node_modules/css-loader?{"importLoaders":1}!./node_modules/postcss-loader/lib?{"ident":"postcss"}!./src/index.scss ***!
   \***************************************************************************************************************************/
 /*! dynamic exports provided */
 /*! all exports used */
@@ -66507,7 +66507,7 @@ MatchesPageContainer.propTypes = {};
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__styles_NavComponent_css__ = __webpack_require__(/*! ./styles/NavComponent.css */ "./src/components/Nav/styles/NavComponent.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__styles_NavComponent_css__ = __webpack_require__(/*! ./styles/NavComponent.scss */ "./src/components/Nav/styles/NavComponent.scss");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__styles_NavComponent_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__styles_NavComponent_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 var _jsxFileName = '/Users/isabella/Development/codaisseur/Week4/knakworst/src/components/Nav/NavComponent.js';
@@ -66630,7 +66630,7 @@ var NavComponent = function (_PureComponent) {
 
 /***/ "./src/components/Nav/styles/NavComponent.css":
 /*!****************************************************!*\
-  !*** ./src/components/Nav/styles/NavComponent.css ***!
+  !*** ./src/components/Nav/styles/NavComponent.scss ***!
   \****************************************************/
 /*! dynamic exports provided */
 /***/ (function(module, exports, __webpack_require__) {
@@ -66638,7 +66638,7 @@ var NavComponent = function (_PureComponent) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--1-oneOf-2-1!../../../../node_modules/postcss-loader/lib??postcss!./NavComponent.css */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./src/components/Nav/styles/NavComponent.css");
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--1-oneOf-2-1!../../../../node_modules/postcss-loader/lib??postcss!./NavComponent.scss */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./src/components/Nav/styles/NavComponent.scss");
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -66652,8 +66652,8 @@ if(content.locals) module.exports = content.locals;
 if(true) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept(/*! !../../../../node_modules/css-loader??ref--1-oneOf-2-1!../../../../node_modules/postcss-loader/lib??postcss!./NavComponent.css */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./src/components/Nav/styles/NavComponent.css", function() {
-			var newContent = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--1-oneOf-2-1!../../../../node_modules/postcss-loader/lib??postcss!./NavComponent.css */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./src/components/Nav/styles/NavComponent.css");
+		module.hot.accept(/*! !../../../../node_modules/css-loader??ref--1-oneOf-2-1!../../../../node_modules/postcss-loader/lib??postcss!./NavComponent.scss */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./src/components/Nav/styles/NavComponent.scss", function() {
+			var newContent = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--1-oneOf-2-1!../../../../node_modules/postcss-loader/lib??postcss!./NavComponent.scss */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./src/components/Nav/styles/NavComponent.scss");
 			if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
 			update(newContent);
 		});
@@ -66676,7 +66676,7 @@ if(true) {
 /* harmony export (immutable) */ __webpack_exports__["a"] = ProfileCard;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__styles_ProfileCard_css__ = __webpack_require__(/*! ./styles/ProfileCard.css */ "./src/components/Profile/styles/ProfileCard.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__styles_ProfileCard_css__ = __webpack_require__(/*! ./styles/ProfileCard.scss */ "./src/components/Profile/styles/ProfileCard.scss");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__styles_ProfileCard_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__styles_ProfileCard_css__);
 var _jsxFileName = '/Users/isabella/Development/codaisseur/Week4/knakworst/src/components/Profile/ProfileCard.js';
 
@@ -66908,7 +66908,7 @@ function mapStateToProps(state) {
 
 /***/ "./src/components/Profile/styles/ProfileCard.css":
 /*!*******************************************************!*\
-  !*** ./src/components/Profile/styles/ProfileCard.css ***!
+  !*** ./src/components/Profile/styles/ProfileCard.scss ***!
   \*******************************************************/
 /*! dynamic exports provided */
 /***/ (function(module, exports, __webpack_require__) {
@@ -66916,7 +66916,7 @@ function mapStateToProps(state) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--1-oneOf-2-1!../../../../node_modules/postcss-loader/lib??postcss!./ProfileCard.css */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./src/components/Profile/styles/ProfileCard.css");
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--1-oneOf-2-1!../../../../node_modules/postcss-loader/lib??postcss!./ProfileCard.scss */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./src/components/Profile/styles/ProfileCard.scss");
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -66930,8 +66930,8 @@ if(content.locals) module.exports = content.locals;
 if(true) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept(/*! !../../../../node_modules/css-loader??ref--1-oneOf-2-1!../../../../node_modules/postcss-loader/lib??postcss!./ProfileCard.css */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./src/components/Profile/styles/ProfileCard.css", function() {
-			var newContent = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--1-oneOf-2-1!../../../../node_modules/postcss-loader/lib??postcss!./ProfileCard.css */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./src/components/Profile/styles/ProfileCard.css");
+		module.hot.accept(/*! !../../../../node_modules/css-loader??ref--1-oneOf-2-1!../../../../node_modules/postcss-loader/lib??postcss!./ProfileCard.scss */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./src/components/Profile/styles/ProfileCard.scss", function() {
+			var newContent = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--1-oneOf-2-1!../../../../node_modules/postcss-loader/lib??postcss!./ProfileCard.scss */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./src/components/Profile/styles/ProfileCard.scss");
 			if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
 			update(newContent);
 		});
@@ -67277,7 +67277,7 @@ WelcomePage.propTypes = {};
 
 /***/ "./src/index.css":
 /*!***********************!*\
-  !*** ./src/index.css ***!
+  !*** ./src/index.scss ***!
   \***********************/
 /*! dynamic exports provided */
 /***/ (function(module, exports, __webpack_require__) {
@@ -67285,7 +67285,7 @@ WelcomePage.propTypes = {};
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(/*! !../node_modules/css-loader??ref--1-oneOf-2-1!../node_modules/postcss-loader/lib??postcss!./index.css */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./src/index.css");
+var content = __webpack_require__(/*! !../node_modules/css-loader??ref--1-oneOf-2-1!../node_modules/postcss-loader/lib??postcss!./index.scss */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./src/index.css");
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -67299,8 +67299,8 @@ if(content.locals) module.exports = content.locals;
 if(true) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept(/*! !../node_modules/css-loader??ref--1-oneOf-2-1!../node_modules/postcss-loader/lib??postcss!./index.css */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./src/index.css", function() {
-			var newContent = __webpack_require__(/*! !../node_modules/css-loader??ref--1-oneOf-2-1!../node_modules/postcss-loader/lib??postcss!./index.css */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./src/index.css");
+		module.hot.accept(/*! !../node_modules/css-loader??ref--1-oneOf-2-1!../node_modules/postcss-loader/lib??postcss!./index.scss */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./src/index.css", function() {
+			var newContent = __webpack_require__(/*! !../node_modules/css-loader??ref--1-oneOf-2-1!../node_modules/postcss-loader/lib??postcss!./index.scss */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\"}!./src/index.css");
 			if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
 			update(newContent);
 		});
@@ -67325,7 +67325,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__index_css__ = __webpack_require__(/*! ./index.css */ "./src/index.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__index_css__ = __webpack_require__(/*! ./index.scss */ "./src/index.scss");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__index_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__index_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__routes__ = __webpack_require__(/*! ./routes */ "./src/routes.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__registerServiceWorker__ = __webpack_require__(/*! ./registerServiceWorker */ "./src/registerServiceWorker.js");
