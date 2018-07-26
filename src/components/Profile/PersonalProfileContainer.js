@@ -11,8 +11,10 @@ class PersonalProfileContainer extends PureComponent {
       <div id={'PersonalProfileContainer'}>
         <NavComponent />
         Profile Container
-        <Link to={`/profile/edit/${this.props.match.params.id}`}>Edit Profile</Link>
-        <Profile profile={this.props.currentUser} />
+        { (this.props.currentUser === this.props.match.params.id) ? 
+            <span> (<Link to={`/profile/edit/${this.props.match.params.id}`}>Edit</Link>)</span> :
+            '' }        
+        <Profile profile={this.props.viewedUser} />
       </div>
     )
   }
@@ -20,7 +22,8 @@ class PersonalProfileContainer extends PureComponent {
 
 function mapStateToProps(state, props) {
   return {
-    currentUser: state.users[props.match.params.id]
+    currentUser: state.currentUser,
+    viewedUser: state.users[props.match.params.id]
   }
 }
 
