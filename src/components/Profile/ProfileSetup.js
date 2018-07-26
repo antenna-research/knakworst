@@ -6,15 +6,6 @@ import { saveProfile } from '../../actions/profile'
 
 class ProfileSetup extends PureComponent {
 
-  // username: 'Kinney1',
-  // firstName: 'Kinney',
-  // lastName: 'Tate',
-  // age: 20,
-  // phone: '974-566-3044',
-  // email: 'Kinney@gmail.com',
-  // address: 'Amsterdam',
-  // instruments: ['Guitar'],
-
   handleChange = (event) => {
     const value = event.target.value
     const name = event.target.name
@@ -25,7 +16,7 @@ class ProfileSetup extends PureComponent {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    // todo: validate, normalize
+
     const currentUserProfile = this.props.users[parseInt(this.props.currentUserId)]
     if (this.state && this.state !== undefined) {
 
@@ -41,8 +32,10 @@ class ProfileSetup extends PureComponent {
         instruments: this.state.instruments ? this.state.instruments : currentUserProfile.instruments,
         genres: this.state.genres ? this.state.genres : currentUserProfile.genres,
       }
-    this.props.saveProfile( updatedProfileData, this.props.currentUserId )
+      console.log('updatedProfileData', updatedProfileData)
+      this.props.saveProfile( updatedProfileData, this.props.currentUserId )
     }
+
   }
 
   render() {
