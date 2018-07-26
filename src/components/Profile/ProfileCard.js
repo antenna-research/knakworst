@@ -10,7 +10,7 @@ export default function ProfileCard({ profile }) {
     <div id={'Profile-component'}>
       <div id={'Profile-card'}>
         {!profile && 'Loading'}
-        <div class="profile-video">
+        <div className="profile-video">
           <iframe
             src="https://www.youtube.com/embed/{ props.user.profile.youtube }"
             frameborder="0"
