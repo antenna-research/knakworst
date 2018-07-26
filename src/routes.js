@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import MatchesPageContainer from './components/Matches/MatchesPageContainer'
 import ProfileContainer from './components/Profile/PersonalProfileContainer'
 import SwipeContainer from './components/Swipe/SwipeContainer'
+import ProfileSetup from './components/Profile/ProfileSetup'
 import EditPreferencesContainer from './components/EditPreferences/EditPreferencesPageContainer'
 import App from './components/App/App'
 
@@ -14,6 +15,7 @@ export default () => {
         <Route exact path={'/matches'} component={MatchesPageContainer} />
         <Route exact path={'/profile/:id'} component={ProfileContainer} />
         <Route exact path={'/swipe'} component={SwipeContainer} />
+        <Route exact path={'/profile/edit/1'} component={ProfileSetup}/>
         <Route exact path={'/edit-profile'} component={EditPreferencesContainer} />
       </div>
     </BrowserRouter>

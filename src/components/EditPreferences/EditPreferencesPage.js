@@ -3,10 +3,6 @@ import React, { PureComponent } from 'react'
 import { Form , FormGroup, Checkbox, ControlLabel, Grid, Col, FormControl, Button, Label, InputGroup, InputGroupAddon} from 'react-bootstrap';
 import {allGenres, allInstruments, allLocations} from '../../data/alternatives-per-preference' ;
 
-
-
-
-
 export default class EditPreferencesPage extends PureComponent {
  
 
