@@ -7,8 +7,6 @@ import getSwipeQueue from '../../lib/getSwipeQueue'
 import NavComponent from '../Nav/NavComponent'
 import NotificationSystem from 'react-notification-system'
 
-import Swipeable from 'react-swipeable'
-
 class SwipeContainer extends PureComponent {
   state = {
     viableCandidates: getSwipeQueue(
