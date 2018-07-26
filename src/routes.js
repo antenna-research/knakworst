@@ -15,8 +15,8 @@ export default () => {
         <Route exact path={'/matches'} component={MatchesPageContainer} />
         <Route exact path={'/profile/:id'} component={ProfileContainer} />
         <Route exact path={'/swipe'} component={SwipeContainer} />
-        <Route exact path={'/profile/edit/1'} component={ProfileSetup}/>
-        <Route exact path={'/edit-profile'} component={EditPreferencesContainer} />
+        <Route exact path={'/profile/edit/:id'} component={ProfileSetup}/>
+        <Route exact path={'/preferences'} component={EditPreferencesContainer} />
       </div>
     </BrowserRouter>
   )
