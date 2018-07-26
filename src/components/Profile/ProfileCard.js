@@ -12,19 +12,25 @@ export default function ProfileCard({ profile }) {
         {!profile && 'Loading'}
         <div class='profile-video'>
           <iframe
-            src='https://www.youtube.com/embed/{ props.user.profile.youtube }'
-            frameborder='0'
-            allow='autoplay; encrypted-media'
+            src="https://www.youtube.com/embed/{ props.user.profile.youtube }"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
             allowfullscreen
           />
         </div>
-        <h1 className={'profile-header'}>{profile.username}, {profile.age}</h1>
-        <h2 class='profile-name'> (aka {profile.firstName} {profile.lastName} )</h2>
 
+        <h1>{profile.username}</h1>
 
-        <ul class='profile-genres'>{profile.genres.map((genre) => <li key={genre}>{genre}</li>)}</ul>
-        <ul class='profile-instruments'>
-          {profile.instruments.map((instrument) => <li key={instrument}>{instrument}</li>)}
+        <ul class="profile-genres">{profile.genres.map((genre, i) => <li key={i}>{genre}</li>)}</ul>
+        <div class="profile-name-age-place">
+          <div class="profile-name">
+            {profile.firstName} {profile.lastName}
+          </div>
+          <div class="profile-age">{profile.age}</div>
+          <div class="profile-city">{profile.city}</div>
+        </div>
+        <ul class="profile-instruments">
+          {profile.instruments.map((instrument, i) => <li key={i}>{instrument}</li>)}
         </ul>
       </div>
     </div>
