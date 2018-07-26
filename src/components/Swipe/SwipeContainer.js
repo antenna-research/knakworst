@@ -1,11 +1,13 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import {likeUser, dislikeUser} from '../../actions/swipe'
+import { likeUser, dislikeUser } from '../../actions/swipe'
 import './styles/SwipeContainer.scss'
 import Swipe from './Swipe'
 import getSwipeQueue from '../../lib/getSwipeQueue'
 import NavComponent from '../Nav/NavComponent'
 import NotificationSystem from 'react-notification-system'
+
+import Swipeable from 'react-swipeable'
 
 class SwipeContainer extends PureComponent {
   state = {
@@ -84,6 +86,7 @@ class SwipeContainer extends PureComponent {
     return (
       <div id={'SwipeContainer'}>
         <NavComponent />
+
         <NotificationSystem ref="notificationSystem" />
         {this.props.viableCandidates && 'Loading'}
         {this.state.viableCandidates.length ? (
@@ -93,6 +96,9 @@ class SwipeContainer extends PureComponent {
             currentCandidateId={this.state.currentCandidateId}
             setLikeUser={this.setLikeUser}
             setDislikeUser={this.setDislikeUser}
+            swiping={this.swiping}
+            swipedLeft={this.swipedLeft}
+            swipedRight={this.swipedRight}
           />
         ) : (
           <h1>No more Musicians match your filter! 😭</h1>
