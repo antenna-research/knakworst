@@ -8,9 +8,10 @@
 	flex-direction: column;
 	border: 1px solid black;
 	border-radius: 10px;
-	width: 40vw;
+  width: 95vw;
 	height: 60vh;
-	overflow: auto;
+	overflow-y: auto;
+  overflow-x: hidden;
 	padding: 2em;
 	iframe {
 			margin-top: 2em;

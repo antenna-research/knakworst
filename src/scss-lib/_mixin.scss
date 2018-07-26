@@ -1,3 +1,4 @@
+@import './var';
 $tablet_breakpoint: 720px;
 $pc_breakpoint: 1280px;
 
@@ -11,4 +12,15 @@ $pc_breakpoint: 1280px;
   @media screen and (min-width: $pc_breakpoint) {
     @content;
   }
+}
+
+@mixin flex() {
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin bottom-boarder-shadow() {
+  -webkit-box-shadow:0 0 4px $FONT_COLOR;
+  -moz-box-shadow:0 0 4px $FONT_COLOR;
+  box-shadow:0 0 4px $FONT_COLOR;
 }
