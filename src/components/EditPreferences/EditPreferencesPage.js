@@ -153,7 +153,7 @@ export default class EditPreferencesPage extends PureComponent {
 
                   {(this.state.age.min >= 0 && this.state.age.max > 0 && (this.state.age.min < this.state.age.max))  &&
                     <div className="card-body">   
-                    <Button type="submit">Save preferences</Button>
+                    <Button type="submit" onClick={() => console.log('test')}>Save preferences</Button>
                   </div> 
                   }
 
