@@ -8,16 +8,16 @@ import EditPreferencesContainer from './components/EditPreferences/EditPreferenc
 import App from './components/App/App'
 
 export default () => {
- return (
-   <BrowserRouter>
-     <div>
-       <Route exact path={'/'} component={App} />
-       <Route exact path={'/matches'} component={MatchesPageContainer} />
-       <Route exact path={'/profile/:id'} component={ProfileContainer} />
-       <Route exact path={'/swipe'} component={SwipeContainer} />
-       {/* <Route exact path={'/profile/edit/'} component={ProfileSetup}/> */}
-       <Route exact path={'/preferences'} component={EditPreferencesContainer} />
-     </div>
-   </BrowserRouter>
- )
+  return (
+    <BrowserRouter>
+      <div>
+        <Route exact path={'/'} component={App} />
+        <Route exact path={'/matches'} component={MatchesPageContainer} />
+        <Route exact path={'/profile/:id'} component={ProfileContainer} />
+        <Route exact path={'/swipe'} component={SwipeContainer} />
+        <Route exact path={'/profile/edit/:id'} component={ProfileSetup}/>
+        <Route exact path={'/preferences'} component={EditPreferencesContainer} />
+      </div>
+    </BrowserRouter>
+  )
 }

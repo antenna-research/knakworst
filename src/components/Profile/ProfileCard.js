@@ -10,26 +10,28 @@ export default function ProfileCard({ profile }) {
     <div id={'Profile-component'}>
       <div id={'Profile-card'}>
         {!profile && 'Loading'}
-        <div class='profile-video'>
+        <div className="profile-video">
           <iframe
             src="https://www.youtube.com/embed/{ props.user.profile.youtube }"
-            frameborder="0"
+            frameBorder="0"
             allow="autoplay; encrypted-media"
-            allowfullscreen
+            allowFullScreen
           />
         </div>
 
         <h1>{profile.username}</h1>
 
-        <ul class="profile-genres">{profile.genres.map((genre, i) => <li key={i}>{genre}</li>)}</ul>
-        <div class="profile-name-age-place">
-          <div class="profile-name">
+        <ul className="profile-genres">
+          {profile.genres.map((genre, i) => <li key={i}>{genre}</li>)}
+        </ul>
+        <div className="profile-name-age-place">
+          <div className="profile-name">
             {profile.firstName} {profile.lastName}
           </div>
-          <div class="profile-age">{profile.age}</div>
-          <div class="profile-city">{profile.city}</div>
+          <div className="profile-age">{profile.age}</div>
+          <div className="profile-city">{profile.city}</div>
         </div>
-        <ul class="profile-instruments">
+        <ul className="profile-instruments">
           {profile.instruments.map((instrument, i) => <li key={i}>{instrument}</li>)}
         </ul>
       </div>
