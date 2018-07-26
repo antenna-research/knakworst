@@ -6,7 +6,8 @@
 
   --width: 80%;
   --maxWidth: 600px;
-  maxHeight: 50vh;
+  max-height: 70vh;
+  max-width: 70vw;
 
   @include tablet() {
     --width: 46%;
@@ -22,36 +23,47 @@
 
 	overflow-y: auto;
   overflow-x: hidden;
-	padding: 2em;
+	padding: 0 2em 2em 2em;
   @include div-border-shadow;
   border-radius: 1em;
 
-	iframe {
-			margin-top: 2em;
-	}
-	.profile-header {
+	h1 {
 			color: $DUTCH_ORANGE;
 	}
 	ul {
 			display: flex;
 			flex-direction: row;
-			justify-content: center;
+			justify-content: space-around;
 			align-items: center;
 			width: inherit;
 			list-style-type: none;
 			padding: 0;
 			margin: 1.5em;
-			li {
-					border: 1px solid $DUTCH_ORANGE;
-					border-radius: 1em;
-					padding: 0.3em;
-					margin: 0 0.25em 0 0.25em;
-					background-color: $DUTCH_ORANGE;
-					color: #ffffff;
+    .profile-genres {
+        padding: 0.4em;
+        margin: 0 0.25em 0 0.25em;
+        background-color: $DUTCH_ORANGE;
+        color: #ffffff;
+      }
+
+      & .profile-instruments & li {
+        background-color: #ffffff;
 			}
-	& .profile-instruments {
-			& ul & li {
-			}
-	}
-	}
+	  }
+
+  iframe {
+    width: 100vh;
+    height: 56vh;
+  }
+
+  .profile-instruments {
+    background: url('../../../data/musical-instruments.png') no-repeat;
+    height: 50px;
+    min-width: 50px;
+    border-radius: 50%;
+    border: none;
+    .Bass {background-position: -342px -143px;}
+    .Guitar {background-position: -390px -562px;}
+    .Piano {background-position: -150px -384px;}
+  }
 }

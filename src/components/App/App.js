@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import './styles/App.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUserCircle, faMusic, faComment, faTimesCircle, faHeart, faSlidersH} from '@fortawesome/free-solid-svg-icons'
+import { faUserCircle, faMusic, faComment, faTimesCircle, faHeart, faSlidersH, faUserEdit} from '@fortawesome/free-solid-svg-icons'
 import { fab, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import {Link} from "react-router-dom"
 
-library.add(faUserCircle, faMusic, faComment, faWhatsapp, fab, faTimesCircle, faHeart, faSlidersH)
+library.add(faUserCircle, faMusic, faComment, faWhatsapp, fab, faTimesCircle, faHeart, faSlidersH, faUserEdit)
 
 class App extends Component {
   render() {

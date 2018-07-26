@@ -6,7 +6,7 @@ import {updatePreferences} from '../../actions/updatePreferences'
 
 class EditPreferencesPageContainer extends  PureComponent {
 
-  sendNewPrefences = (newPreferences) => {
+  sendNewPreferences = (newPreferences) => {
     this.props.updatePreferences(this.props.currentUser, newPreferences)
   }
 
@@ -14,7 +14,7 @@ class EditPreferencesPageContainer extends  PureComponent {
     return (
       <div>
         <NavComponent />
-        <EditPreferencesPage currentUser={this.props.currentUser} preferences={this.props.preferences} updatePreferences={updatePreferences} sendNewPrefences={this.sendNewPrefences}/> 
+        <EditPreferencesPage currentUser={this.props.currentUser} preferences={this.props.preferences} updatePreferences={updatePreferences} sendNewPrefences={this.sendNewPreferences}/>
       </div>
     )
   }

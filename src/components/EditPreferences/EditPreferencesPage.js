@@ -37,7 +37,7 @@ export default class EditPreferencesPage extends PureComponent {
   handleSubmit = (e) => {
     e.preventDefault()
     this.getValidationState();
-    this.props.sendNewPrefences(this.state)
+    this.props.sendNewPreferences(this.state)
   }
 
   render() {
