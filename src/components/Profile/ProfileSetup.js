@@ -1,219 +1,164 @@
 import React, { PureComponent } from 'react'
 import './styles/ProfileSetup.css'
 import NavComponent from '../Nav/NavComponent'
+import { withRouter } from 'react-router-dom'
+import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import { saveProfile } from '../../actions/profile'
-import { withRouter } from 'react-router-dom'
+import Multiselect from 'react-widgets/lib/Multiselect'
+import './styles/ProfileSetup.css'
+import 'react-widgets/dist/css/react-widgets.css'
 
 class ProfileSetup extends PureComponent {
-  state = {}
+  handleSubmit = this.props.handleSubmit
+  pristine = this.props.pristine
+  reset = this.props.reset
+  submitting = this.props.submitting
 
-  handleChange = event => {
-    const value = event.target.value
-    const name = event.target.name
-    if (['instruments', 'genres'].includes(event.target.name)) {
-      if (this.state[event.target.name]) {
-        const x = this.state[event.target.name]
-        this.setState({ [name]: [...x, value] })
-      } else {
-        this.setState({ [name]: [value] })
-      }
-    } else {
-      this.setState({
-        [name]: value
-      })
-    }
-  }
-
-  handleSubmit = e => {
-    e.preventDefault()
-    console.log('this.state.instruments', this.state.instruments)
-    const currentUserProfile = this.props.users[parseInt(this.props.currentUserId)]
-    if (this.state && this.state !== undefined) {
-      const updatedProfileData = {
-        id: this.props.currentUserId,
-        username: this.state.username ? this.state.username : currentUserProfile.username,
-        firstName: this.state.firstName ? this.state.firstName : currentUserProfile.firstName,
-        lastName: this.state.lastName ? this.state.lastName : currentUserProfile.lastName,
-        age: this.state.age ? this.state.age : currentUserProfile.age,
-        phone: this.state.phone ? this.state.phone : currentUserProfile.phone,
-        email: this.state.email ? this.state.email : currentUserProfile.email,
-        address: this.state.address ? this.state.address : currentUserProfile.address,
-        instruments: this.state.instruments
-          ? this.state.instruments
-          : currentUserProfile.instruments,
-        genres: this.state.genres ? this.state.genres : currentUserProfile.genres,
-        youtube: this.state.youtube
-          ? this.state.youtube.split('watch?v=')[1].split('&')[0]
-          : currentUserProfile.youtube
-      }
-      this.props.saveProfile(updatedProfileData, this.props.currentUserId)
-
-      this.props.history.push('/profile/' + this.props.currentUserId)
-    }
-  }
+  renderMultiselect = ({ input, data, valueField, textField }) => (
+    <Multiselect
+      {...input}
+      onBlur={() => input.onBlur()}
+      value={input.value || []} // requires value to be an array
+      data={data}
+      valueField={valueField}
+      textField={textField}
+    />
+  )
 
   render() {
-    console.log(this.props.currentUser)
-    const currentUserProfile = this.props.users[this.props.currentUserId]
     return (
-      <div id="profile-form">
+      <div>
         <NavComponent />
-        <link
-          rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-          crossOrigin="anonymous"
-        />
-
-        <h2>Set up your profile</h2>
-
-        <form onSubmit={this.handleSubmit}>
-          <p>
+        <form onSubmit={this.props.handleSubmit(submit)} id="profile-form">
+          <div>
             <label>Username</label>
             <br />
-            <input
-              type="text"
-              name="username"
-              className="form-control"
-              onChange={this.handleChange}
-              defaultValue={this.props.users[this.props.currentUserId].username}
-            />
-          </p>
+            <Field name="username" component="input" type="text" className="form-control" />
+          </div>
 
-          <p>
+          <div>
             <label>First Name</label>
             <br />
-            <input
-              type="text"
-              name="firstName"
-              className="form-control"
-              onChange={this.handleChange}
-              defaultValue={currentUserProfile.firstName}
-            />
-          </p>
+            <Field name="firstName" component="input" type="text" className="form-control" />
+          </div>
 
-          <p>
+          <div>
             <label>Last Name</label>
             <br />
-            <input
-              type="text"
-              name="lastName"
-              className="form-control"
-              onChange={this.handleChange}
-              defaultValue={currentUserProfile.lastName}
-            />
-          </p>
+            <Field name="lastName" component="input" type="text" className="form-control" />
+          </div>
 
-          <p>
+          <div>
             <label>Age</label>
             <br />
-            <input
-              type="text"
-              name="age"
-              className="form-control"
-              onChange={this.handleChange}
-              defaultValue={currentUserProfile.age}
-            />
-          </p>
+            <Field name="age" component="input" type="text" className="form-control" />
+          </div>
 
-          <p>
+          <div>
             <label>Phone</label>
             <br />
-            <input
-              type="text"
-              name="phone"
-              className="form-control"
-              onChange={this.handleChange}
-              defaultValue={currentUserProfile.phone}
-            />
-          </p>
+            <Field name="phone" component="input" type="text" className="form-control" />
+          </div>
 
-          <p>
+          <div>
             <label>Email</label>
             <br />
-            <input
-              type="text"
-              name="email"
-              className="form-control"
-              onChange={this.handleChange}
-              defaultValue={currentUserProfile.email}
-            />
-          </p>
+            <Field name="email" component="input" type="email" className="form-control" />
+          </div>
 
-          <p>
+          <div>
             <label>City</label>
             <br />
-            <input
-              type="text"
-              name="address"
-              className="form-control"
-              onChange={this.handleChange}
-              defaultValue={currentUserProfile.address}
-            />
-          </p>
+            <Field name="address" component="input" type="text" className="form-control" />
+          </div>
 
-          <p>
+          <div>
             <label>What genres do you play?</label>
             <br />
-            <select
-              multiple
+            <Field
               name="genres"
-              className="form-control"
-              onChange={this.handleChange}
-              defaultValue={currentUserProfile.genres}
-            >
-              <option value="Rock">Rock</option>
-              <option value="Jazz">Jazz</option>
-              <option value="Funk">Funk</option>
-              <option value="Classic">Classic</option>
-            </select>
-          </p>
+              component={this.renderMultiselect}
+              data={['Rock', 'Jazz', 'Funk', 'Reggae', 'SynthPop', 'Experimental']}
+            />
+          </div>
 
-          <p>
+          <div>
             <label>What instruments do you play?</label>
             <br />
-            <select
-              multiple
+            <Field
               name="instruments"
-              className="form-control"
-              onChange={this.handleChange}
-              defaultValue={currentUserProfile.instruments}
-            >
-              <option value="Piano">Piano</option>
-              <option value="Guitar">Guitar</option>
-              <option value="Bass">Bass</option>
-              <option value="Drums">Drums</option>
-              <option value="Flute">Flute</option>
-              <option value="Timpani">Timpani</option>
-            </select>
-          </p>
+              component={this.renderMultiselect}
+              data={[
+                'Piano',
+                'Guitar',
+                'Bass',
+                'Drums',
+                'Tambourine',
+                'Vocals',
+                'Flute',
+                'Violin',
+                'Viola',
+                'Cello',
+                'Contrabass'
+              ]}
+            />
+          </div>
 
-          <p>
+          <div>
             <label>Youtube Link</label>
             <br />
-            <input
-              type="text"
-              name="youtube"
-              className="form-control"
-              onChange={this.handleChange}
-              defaultValue={'youtube.com/watch?v=' + currentUserProfile.youtube}
-            />
-          </p>
+            <Field name="youtube" component="input" type="text" className="form-control" />
+          </div>
 
-          <input type="submit" value="Submit" />
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
         </form>
       </div>
     )
   }
 }
 
+const submit = (values, x, other) => {
+  const newData = {
+    id: other.currentUserId,
+    username: values.username,
+    firstName: values.firstName,
+    lastName: values.lastName,
+    age: values.age,
+    phone: values.phone,
+    email: values.email,
+    address: values.address,
+    instruments: values.instruments,
+    genres: values.genres,
+    youtube: [values.youtube.split('&')[0].split('watch?v=')[1]]
+  }
+  // console.log(newData.youtube)
+  other.saveProfile(newData, other.currentUserId)
+  other.history.push('/profile/' + other.currentUserId)
+}
+
 const mapStateToProps = state => {
-  return {
+  let props = {
     currentUserId: state.currentUser,
     users: state.users
   }
+  if (state.users && state.currentUser) {
+    const currentProfile = state.users[parseInt(state.currentUser)]
+    props['initialValues'] = currentProfile
+    if (!props['initialValues'].youtube.includes('youtube')) {
+      props['initialValues'].youtube = 'youtube.com/watch?v=' + currentProfile.youtube
+    }
+  }
+  return props
 }
+
+ProfileSetup = reduxForm({
+  form: 'profile',
+  enableReinitialize: true,
+  onSubmit: submit
+})(ProfileSetup)
 
 export default connect(
   null,

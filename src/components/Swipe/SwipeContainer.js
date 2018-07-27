@@ -84,7 +84,6 @@ class SwipeContainer extends PureComponent {
     return (
       <div id={'SwipeContainer'}>
         <NavComponent />
-
         <NotificationSystem ref="notificationSystem" />
         {this.props.viableCandidates && 'Loading'}
         {this.state.viableCandidates.length ? (
@@ -99,7 +98,7 @@ class SwipeContainer extends PureComponent {
             swipedRight={this.swipedRight}
           />
         ) : (
-          <h1>No more Musicians match your filter! 😭</h1>
+            <h1>No more Musicians match your filter! 😭</h1>
         )}
       </div>
     )

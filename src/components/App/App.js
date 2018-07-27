@@ -1,7 +1,19 @@
 import Signup from '../Signup/Signup'
 import SwipeContainer from '../Swipe/SwipeContainer'
 import './styles/App.scss'
-
+import { library } from '@fortawesome/fontawesome-svg-core'
+import {
+  faUserCircle,
+  faMusic,
+  faComment,
+  faTimesCircle,
+  faHeart,
+  faSlidersH,
+  faUserEdit,
+  faSpinner,
+  faMapMarkerAlt
+} from '@fortawesome/free-solid-svg-icons'
+import { fab, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -38,7 +50,8 @@ library.add(
   faHeart,
   faSlidersH,
   faUserEdit,
-  faSpinner
+  faSpinner,
+  faMapMarkerAlt
 )
 
 class App extends Component {
