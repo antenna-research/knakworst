@@ -195,9 +195,9 @@ export const resetDatabase = () => {
         .database()
         .ref('matches/' + user.uid)
         .set({
-          likes: ['1', '2', '3'],
-          dislikes: [],
-          matches: ['1', '2', '3']
+          likes: 0,
+          dislikes: 0,
+          matches: 0
         })
 
       const resFromPreferences = firebase
