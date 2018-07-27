@@ -122,11 +122,19 @@ export const fetchData = () => {
       .ref('/preferences/')
       .once('value')
       .then(res => res.val())
-    const [users, matches, preferences] = await Promise.all([
+    let [users, matches, preferences] = await Promise.all([
       usersRequest,
       matchesRequest,
       preferencesRequest
     ])
+
+    // matches = Object.keys(matches).map(key => {
+    //   return {
+    //     dislikes: matches[key].dislikes || [],
+    //     likes: matches[key].likes || [],
+    //     matches: matches[key].matches || []
+    //   }
+    // })
 
     dispatch({
       type: SET_MATCHES,

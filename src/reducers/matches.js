@@ -37,9 +37,10 @@ const dislikeUser = (state, { mainUserId, profileUserId }) => {
 const reducer = (state = null, { type, payload } = {}) => {
   switch (type) {
     case LIKE_USER:
-      return likeUser(state, payload)
+      console.log('like')
+      return payload.newState
     case DISLIKE_USER:
-      return dislikeUser(state, payload)
+      return payload.newState
     case SET_MATCHES:
       return {
         ...payload.matches
