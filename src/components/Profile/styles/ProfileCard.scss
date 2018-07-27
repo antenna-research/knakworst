@@ -1,20 +1,16 @@
 @import '../../../scss-lib/mixin';
 @import '../../../scss-lib/var';
-
-#Profile-card {
-  $mainPadding: 50px;
-
-  --width: 80%;
-  --maxWidth: 600px;
+#Profile-component{
+  max-width: 450px;
   max-height: 70vh;
-  max-width: 600px;
-  margin: 2em;
+  margin: auto;
+}
+#Profile-card {
   @include flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   flex-flow: wrap;
-
 	overflow-y: auto;
   overflow-x: hidden;
 	padding: 0 2em 2em 2em;
