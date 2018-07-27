@@ -75,7 +75,7 @@ class ProfileSetup extends PureComponent {
           <Field
           name="instruments"
           component={this.renderMultiselect}
-          data={[ 'Piano', 'Guitar', 'Bass', 'Drums', 'Tambourine', 'Vocals', 'Flute', 'Violin', 'Viola', 'Cello', 'Contrabass' ]}/>
+          data={[ 'Piano', 'Guitar', 'Bass', 'Drums', 'Tambourine', 'Vocals', 'Flute', 'Violin', 'Cello', 'Saxophone' ]}/>
           </div>
 
           <div>
