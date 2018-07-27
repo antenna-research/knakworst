@@ -48,11 +48,10 @@ export const likeUser = (mainUserId, profileUserId) => {
 
     updateMatches(newState, mainUserId, profileUserId)
 
-    const res = await firebase
+    await firebase
       .database()
       .ref('matches/')
       .set(newState)
-    console.log(newState)
 
     dispatch({
       type: LIKE_USER,

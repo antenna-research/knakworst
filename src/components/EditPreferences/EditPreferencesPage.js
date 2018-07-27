@@ -1,18 +1,13 @@
 import './styles/EditPreferences.css'
 import React, { PureComponent } from 'react'
 import {
-  Form,
   FormGroup,
   Checkbox,
   ControlLabel,
-  Grid,
-  Col,
   FormControl,
   Button,
-  Label,
   InputGroup,
   InputGroupAddon,
-  HelpBlock
 } from 'react-bootstrap'
 import { allGenres, allInstruments, allLocations } from '../../data/alternatives-per-preference'
 import { withRouter } from 'react-router-dom'

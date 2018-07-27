@@ -37,4 +37,4 @@ function mapStateToProps(state, props) {
   }
 }
 
-export default connect(null)(PersonalProfileContainer)
+export default connect(mapStateToProps)(PersonalProfileContainer)
