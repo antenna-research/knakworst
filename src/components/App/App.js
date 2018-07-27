@@ -1,3 +1,5 @@
+import Signup from '../Signup/Signup'
+
 import './styles/App.scss'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -16,6 +18,7 @@ import {
 import { fab, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import React, { Component } from 'react'
+import Auth from '../Auth/Auth'
 
 import { checkAuth, fetchData, loginUser, resetDatabase } from '../../actions/authentication'
 
@@ -33,10 +36,6 @@ library.add(
 )
 
 class App extends Component {
-  componentDidMount = () => {
-    console.log('DIDMOUNT')
-    this.props.checkAuth()
-  }
   render() {
     return (
       <div className="App">
@@ -48,7 +47,7 @@ class App extends Component {
         <Link to={'/signup'}>
           <button>Sign Up</button>
         </Link>
-
+        <Auth component={Signup} />
         <button onClick={this.props.loginUser}>Login</button>
         <button onClick={this.props.fetchData}>Fetch Data</button>
         <button onClick={this.props.resetDatabase}>Reset Database</button>

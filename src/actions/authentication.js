@@ -9,7 +9,17 @@ export const LOGIN_USER = 'LOGIN_USER'
 export const SET_USER = 'SET_USER'
 export const AUTH_VERIFIED = 'AUTH_VERIFIED'
 export const SET_USERS = 'SET_USERS'
+export const SET_PREFERENCES = 'SET_PREFERENCES'
 // export const FETCH_DATA = 'FETCH_DATA'
+
+export const setUser = id => {
+  return {
+    type: SET_USER,
+    payload: {
+      userId: id
+    }
+  }
+}
 
 export const createUser = ({ email, password }) => {
   return async dispatch => {
@@ -96,8 +106,16 @@ export const fetchData = () => {
       .ref('/matches/')
       .once('value')
       .then(res => res.val())
-
-    const [users, matches] = await Promise.all([usersRequest, matchesRequest])
+    const preferencesRequest = firebase
+      .database()
+      .ref('/preferences/')
+      .once('value')
+      .then(res => res.val())
+    const [users, matches, preferences] = await Promise.all([
+      usersRequest,
+      matchesRequest,
+      preferencesRequest
+    ])
 
     dispatch({
       type: SET_MATCHES,
@@ -110,6 +128,13 @@ export const fetchData = () => {
       type: SET_USERS,
       payload: {
         users
+      }
+    })
+
+    dispatch({
+      type: SET_PREFERENCES,
+      payload: {
+        preferences
       }
     })
   }

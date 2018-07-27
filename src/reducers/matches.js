@@ -29,7 +29,7 @@ const dislikeUser = (state, { mainUserId, profileUserId }) => {
   return newState
 }
 
-const reducer = (state = {}, { type, payload } = {}) => {
+const reducer = (state = null, { type, payload } = {}) => {
   switch (type) {
     case LIKE_USER:
       return likeUser(state, payload)

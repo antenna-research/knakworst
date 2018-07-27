@@ -15,7 +15,7 @@ function saveToProfiles(state, payload) {
   return newState
 }
 
-const reducer = (state = {}, { type, payload } = {}) => {
+const reducer = (state = null, { type, payload } = {}) => {
   switch (type) {
     case SAVE_PROFILE:
       const newState = saveToProfiles(state, payload)
