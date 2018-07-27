@@ -1,6 +1,5 @@
 import { LOGOUT_USER, SET_PREFERENCES } from '../actions/authentication'
 import { UPDATE_PREFERENCES } from '../actions/updatePreferences'
-import preferences from '../data/preferences'
 
 const reducer = (state = null, action = {}) => {
   switch (action.type) {

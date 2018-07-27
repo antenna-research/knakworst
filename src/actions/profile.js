@@ -1,5 +1,4 @@
 import firebase from "../firebase/settings"
-import {fetchData} from "./authentication"
 
 export const SAVE_PROFILE = 'SAVE_PROFILE'
 export const SET_PROFILE = 'SET_PROFILE'
@@ -20,9 +19,9 @@ export const saveProfile = (profileData, currentUser, other) => {
       console.log('done')
 
       dispatch({
-      type: SAVE_PROFILE,
-      payload: {profileData, currentUser}
-    })
+        type: SAVE_PROFILE,
+        payload: {profileData, currentUser}
+      })
     }
   }
 }
