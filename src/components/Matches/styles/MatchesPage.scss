@@ -14,20 +14,35 @@
     @include flex;
     align-items: center;
 
-    .user {
+    #user {
+      @include flex;
       justify-content: space-between;
-      width: 70%;
+    }
+
+    #user-details {
+      width: 30vw;
     }
 
     #profile-button {
-      align-self: center;
-      .button {
-        align-self: center;
+      @include flex;
+      align-items: center;
+      button {
+        margin-left: 1em;
         background-color: $DUTCH_ORANGE;
         color: white;
         transition: $TRANSITION;
+        border: none;
+        padding: 0.25em;
+        border-radius: 1em;
         &:hover {
-          background-color: lighten($DUTCH_ORANGE, 15%);
+          background-color: darken($DUTCH_ORANGE, 15%);
+        }
+      }
+      a {
+        color: $DUTCH_ORANGE;
+        text-decoration: none;
+        &:hover {
+          color: darken($DUTCH_ORANGE, 15%);
         }
       }
     }
