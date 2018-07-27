@@ -6,6 +6,7 @@ import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import { saveProfile } from '../../actions/profile'
 import Multiselect from 'react-widgets/lib/Multiselect'
+import Combobox from 'react-widgets/lib/Combobox'
 import './styles/ProfileSetup.css'
 import 'react-widgets/dist/css/react-widgets.css'
 
@@ -46,7 +47,7 @@ class ProfileSetup extends PureComponent {
       ? 'Only alphanumeric characters'
       : undefined;
   phoneNumber = value =>
-    value && !/^(0|[1-9][0-9]{9})$/i.test(value)
+    value && !/^\(?\d{3}\)?[- ]?\d{3}[- ]?\d{4}$/i.test(value)
       ? 'Invalid phone number, must be 10 digits'
       : undefined;
 
@@ -59,15 +60,20 @@ class ProfileSetup extends PureComponent {
       data={data}
       valueField={valueField}
       textField={textField}
-    />
+    />;
 
-  youtubeSerial = value => value && [value.split('&')[0].split('watch?v=')[1],]
+  renderCombobox = ({ input, data }) =>
+    <Combobox {...input}
+      data={data} />;
+
+
+  youtubeSerial = value => value && [value.split('&')[0].split('watch?v=')[1],];
   youtubeUrl = value => {
     if ( !value.includes('youtube') ) {
       return "youtube.com/watch?v=" + value
     }
     return value
-  }
+  };
 
   renderField = ({
     input,
@@ -86,7 +92,7 @@ class ProfileSetup extends PureComponent {
   render() {
     return (<div>
       <NavComponent />
-      <form id="profile-form">
+      <form onSubmit={this.props.handleSubmit(submit)} id="profile-form">
         <Field name="username" component="input" type="text" className="form-control" 
         label="Username" component={this.renderField} validate={[this.required, this.maxLength15, this.minLength2]} warn={this.alphaNumeric} />
 
@@ -105,8 +111,12 @@ class ProfileSetup extends PureComponent {
         <Field name="email" component="input" type="email" className="form-control" 
         label="Email" component={this.renderField} validate={[this.required, this.email]} />
 
-        <Field name="address" component="input" type="text" className="form-control" 
-        label="City" component={this.renderField} validate={[this.required]} />
+        <div><label>What city do you live in?</label><br/>
+        <Field
+        name="address"
+        component={this.renderCombobox}
+        data={[ 'Amsterdam', 'Leiden', 'Rotterdam', 'Utrecht', 'Den Haag' ]}/>
+        </div>
 
         <div><label>What genres do you play?</label><br/>
         <Field
