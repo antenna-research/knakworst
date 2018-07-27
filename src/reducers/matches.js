@@ -1,3 +1,5 @@
+import { LOGOUT_USER } from '../actions/authentication'
+
 import _ from 'lodash'
 
 import { DISLIKE_USER, LIKE_USER } from '../actions/swipe'
@@ -39,6 +41,8 @@ const reducer = (state = null, { type, payload } = {}) => {
       return {
         ...payload.matches
       }
+    case LOGOUT_USER:
+      return null
     default:
       return state
   }

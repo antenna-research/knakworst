@@ -1,7 +1,6 @@
-import { SET_PREFERENCES } from '../actions/authentication'
-
-import preferences from '../data/preferences'
+import { LOGOUT_USER, SET_PREFERENCES } from '../actions/authentication'
 import { UPDATE_PREFERENCES } from '../actions/updatePreferences'
+import preferences from '../data/preferences'
 
 const reducer = (state = null, action = {}) => {
   switch (action.type) {
@@ -11,10 +10,9 @@ const reducer = (state = null, action = {}) => {
         [action.payload.currentUser]: action.payload.newPreferences
       }
     case SET_PREFERENCES:
-      return {
-        ...state,
-        preferences: action.payload.preferences
-      }
+      return action.payload.preferences
+    case LOGOUT_USER:
+      return null
     default:
       return state
   }

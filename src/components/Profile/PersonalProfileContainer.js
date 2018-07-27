@@ -3,15 +3,17 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import NavComponent from '../Nav/NavComponent'
 import Profile from './ProfileCard'
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class PersonalProfileContainer extends PureComponent {
   render() {
     return (
       <div id={'PersonalProfileContainer'}>
         <NavComponent />
-        <Link to={`/profile/edit/${this.props.match.params.id}`}><FontAwesomeIcon icon="user-edit" /></Link>
-        <Profile profile={this.props.viewedUser} />
+        <Link to={`/profile/edit/${this.props.match.params.id}`}>
+          <FontAwesomeIcon icon="user-edit" />
+        </Link>
+        <Profile profile={this.props.users[this.props.match.params.id]} />
       </div>
     )
   }
@@ -24,4 +26,4 @@ function mapStateToProps(state, props) {
   }
 }
 
-export default connect(mapStateToProps)(PersonalProfileContainer)
+export default connect(null)(PersonalProfileContainer)

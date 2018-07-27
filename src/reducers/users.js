@@ -1,6 +1,6 @@
 // import users from '../data/users'
+import { LOGOUT_USER, SET_USERS } from '../actions/authentication'
 import { SAVE_PROFILE } from '../actions/profile'
-import { SET_USERS } from '../actions/authentication'
 
 function saveToProfiles(state, payload) {
   let newState = {}
@@ -22,6 +22,8 @@ const reducer = (state = null, { type, payload } = {}) => {
       return newState
     case SET_USERS:
       return { ...payload.users }
+    case LOGOUT_USER:
+      return null
     default:
       return state
   }

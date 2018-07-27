@@ -7,8 +7,17 @@ import firebase from '../../firebase/settings'
 class Auth extends Component {
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
-      this.props.setUser(user.uid)
-      this.props.fetchData()
+      if (!user) {
+        this.props.history.replace('/signup')
+        return
+      }
+      const isDataReady =
+        this.props.matches && this.props.currentUser && this.props.users && this.props.preferences
+
+      if (!isDataReady) {
+        this.props.setUser(user.uid)
+        this.props.fetchData()
+      }
     })
   }
   render() {
@@ -16,8 +25,19 @@ class Auth extends Component {
 
     const isDataReady =
       this.props.matches && this.props.currentUser && this.props.users && this.props.preferences
-    console.log('ready?', isDataReady)
-    return <div>{isDataReady ? <Copmonent /> : null}</div>
+    return (
+      <div>
+        {isDataReady ? (
+          <Copmonent
+            {...this.props}
+            currentUserId={this.props.currentUser}
+            users={this.props.users}
+            matches={this.props.matches}
+            preferences={this.props.preferences}
+          />
+        ) : null}
+      </div>
+    )
   }
 }
 

@@ -11,6 +11,7 @@ export const AUTH_VERIFIED = 'AUTH_VERIFIED'
 export const SET_USERS = 'SET_USERS'
 export const SET_PREFERENCES = 'SET_PREFERENCES'
 // export const FETCH_DATA = 'FETCH_DATA'
+export const LOGOUT_USER = 'LOGOUT_USER'
 
 export const setUser = id => {
   return {
@@ -60,6 +61,16 @@ export const loginUser = () => {
     } catch (e) {
       console.log(e.message)
     }
+  }
+}
+
+export const logoutUser = () => {
+  return async dispatch => {
+    const res = await firebase.auth().signOut()
+    console.log(res)
+    dispatch({
+      type: LOGOUT_USER
+    })
   }
 }
 

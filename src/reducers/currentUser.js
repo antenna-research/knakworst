@@ -1,3 +1,5 @@
+import { LOGOUT_USER } from '../actions/authentication'
+
 import { LOGIN_USER, SET_USER } from '../actions/authentication'
 import users from '../data/users'
 
@@ -9,6 +11,8 @@ const reducer = (state = null, { type, payload } = {}) => {
     case LOGIN_USER:
       console.log('login')
       return payload.userId
+    case LOGOUT_USER:
+      return null
     default:
       return state
   }

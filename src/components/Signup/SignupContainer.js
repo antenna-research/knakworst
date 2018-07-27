@@ -23,12 +23,22 @@ class SignupContainer extends Component {
       this.props.history.replace('/')
     }
   }
-  onSubmit = e => {
-    e.preventDefault()
+  onCreateUser = e => {
     this.props.createUser({ ...this.state })
   }
+  onLogin = e => {
+    this.props.loginUser()
+    this.props.history.push('/swipe')
+  }
+
   render() {
-    return <Signup onInputChange={this.onInputChange} onSubmit={this.onSubmit} />
+    return (
+      <Signup
+        onInputChange={this.onInputChange}
+        onCreateUser={this.onCreateUser}
+        onLogin={this.onLogin}
+      />
+    )
   }
 }
 const mapStateToProps = state => ({
@@ -36,5 +46,5 @@ const mapStateToProps = state => ({
 })
 export default connect(
   mapStateToProps,
-  { createUser }
+  { createUser, loginUser }
 )(SignupContainer)

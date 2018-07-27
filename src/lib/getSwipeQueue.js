@@ -5,14 +5,14 @@ const getSwipeQueue = (currentUserId, profiles, preferences, matches) => {
   // is user in candidate's dislikes or matches?
   function isStillViable(userId, candidateMatches) {
     if (!userId || !candidateMatches) return false
-    console.log(userId, candidateMatches)
-    if (candidateMatches.dislikes.includes(userId)) return false
-    if (candidateMatches.matches.includes(userId)) return false
+    if (candidateMatches.dislikes && candidateMatches.dislikes.includes(userId)) return false
+    if (candidateMatches.matches && candidateMatches.matches.includes(userId)) return false
     return true
   }
 
   // is at least one of the genres in the profile in the preferences?
   function genreMatches(profile, preferences) {
+    if (!profile || !preferences) return false
     if (intersection(profile.genres, preferences.genres).length > 0) return true
     return false
   }
