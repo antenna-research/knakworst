@@ -1,0 +1,14 @@
+@import '../../../scss-lib/var.scss';
+.logout-button {
+  // position: absolute;
+  margin: 10% auto;
+  text-align: center;
+  background-color: $DUTCH_ORANGE;
+  border: none;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: lighten($DUTCH_ORANGE, 10%);
+  }
+}
