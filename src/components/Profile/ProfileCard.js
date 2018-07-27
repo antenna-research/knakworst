@@ -1,6 +1,7 @@
 import React from 'react'
 import './styles/ProfileCard.scss'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import './styles/ProfileCardQueries.scss'
 
 export default function ProfileCard({ profile }) {
   return (

@@ -1,0 +1,46 @@
+@media only screen and (max-width: 1200px) {
+  
+
+}
+
+@media only screen and (max-width: 1023px) {
+  
+}
+
+@media only screen and (max-width: 767px) {
+  #Profile-card {
+    max-width: 350px;
+   iframe {
+    min-width: 100vh;
+    min-height: 30vh;
+   }
+  }
+}
+
+@media only screen and (max-width: 640px) and (orientation: landscape)  {
+  
+}
+
+@media only screen and (max-width: 480px) {
+  #Profile-card {
+    margin-top: 0;
+    max-width: 320px;
+   iframe {
+    min-width: 100vh;
+    min-height: 20vh;
+   }
+  }
+
+}
+
+@media only screen and (max-width: 320px) {
+  #Profile-card {
+    margin-top: 0;
+    max-width: 250px;
+   iframe {
+    min-width: 100vh;
+    min-height: 20vh;
+   }
+  }
+
+}
