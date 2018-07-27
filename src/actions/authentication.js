@@ -1,4 +1,7 @@
-import '../firebase/settings.js'
+// import '../firebase/settings.js'
+
+import '../firebase/index.js'
+
 
 // import axios from 'axios'
 import firebase from 'firebase'

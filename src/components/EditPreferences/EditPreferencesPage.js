@@ -1,4 +1,4 @@
-import './styles/EditPreferences.css'
+import './styles/EditPreferences.scss'
 import React, { PureComponent } from 'react'
 import { Form , FormGroup, Checkbox, ControlLabel, Grid, Col, FormControl, Button, Label, InputGroup, InputGroupAddon, HelpBlock} from 'react-bootstrap';
 import {allGenres, allInstruments, allLocations} from '../../data/alternatives-per-preference';
@@ -40,21 +40,28 @@ class EditPreferencesPage extends PureComponent {
     if (minAge < 0 || maxAge < 0) return 'error'
   }
 
+ 
+
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.sendNewPrefences(this.state)
+    this.props.sendNewPreferences(this.state)
     this.props.history.push('/swipe')
   }
 
   render() {
     return (
       
-      <div>
-         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossOrigin="anonymous" />
-        <div className="container">
+      <div id="preferencespage">
+        
+        {/* <div className="container">
           <div className="col md-6">
-              <div className="card">
-                <form onSubmit={this.handleSubmit} className="needs-validation" noValidate>
+              // <div className="card"> */}
+              <div>
+              
+                <h1>Edit your preferences</h1>
+                <form onSubmit={this.handleSubmit} className="needs-validation form-wrapper" noValidate>
+
+                 {/* <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossOrigin="anonymous" /> */}
             
                  {!this.props.preferences && 
                   <div>
@@ -62,26 +69,39 @@ class EditPreferencesPage extends PureComponent {
                   </div>
                   }
                   
-                  <div className="form-group card-body">
+                  <div className="card-body">
                   {this.props.preferences && 
                   <div>
-                    <ControlLabel>Genres</ControlLabel>
+                    <h2>Genres</h2>
+              
+                    <ul>
                     {allGenres.map(genre => {
                 
                       if (this.props.preferences[this.props.currentUser].genres.includes(genre)) {
                         return (
+                      
+                         
+                       
                           <div>
-                          <Checkbox value="genres" defaultChecked={true} name={genre} onChange={this.handleChange}>{genre}</Checkbox>
+                            <li>
+                           <Checkbox value="genres" defaultChecked={true} name={genre} onChange={this.handleChange}>{genre}</Checkbox>
+                           </li>
                          </div>
+                       
+                      
                         )
                       } else {
                         return (
                           <div>
-                            <Checkbox value="genres" name={genre} onChange={this.handleChange}>{genre}</Checkbox>
-                          </div>
+                          <li>
+                          <Checkbox value="genres" name={genre} onChange={this.handleChange}>{genre}</Checkbox>
+                          </li>
+                        </div>
+                     
                         )
                       }    
                     })}
+                    </ul>
                   </div>
                   }
                   </div>
@@ -90,54 +110,67 @@ class EditPreferencesPage extends PureComponent {
                  
                   {this.props.preferences && 
                   <div className="card-body">
-                    <ControlLabel>Instruments</ControlLabel>
+                    <h2>Instruments</h2>
+                    <ul>
                     {allInstruments.map(instrument => {
                 
                       if (this.props.preferences[this.props.currentUser].instruments.includes(instrument)) {
                         return (
                           <div>
+                            <li>
                            <Checkbox value="instruments" defaultChecked={true} name={instrument} onChange={this.handleChange}>{instrument}</Checkbox>
+                           </li>
                          </div>
                         )
                       } else {
                         return (
                           <div>
+                            <li>
                             <Checkbox value="instruments" name={instrument} onChange={this.handleChange}>{instrument}</Checkbox>
+                            </li>
                           </div>
                         )
                       }    
                     })}
+                    </ul>
                   </div>
                   }
         
                    
                   {this.props.preferences && 
                   <div className="card-body">
-                    <ControlLabel>Locations</ControlLabel>
+                    
+                    <h2>Locations</h2>
+                    <ul>
                     {allLocations.map(location => {
                 
                       if (this.props.preferences[this.props.currentUser].locations.includes(location)) {
                         return (
                           <div>
+                            <li>
                           <Checkbox value="locations" defaultChecked={true} name={location} onChange={this.handleChange}>{location}</Checkbox>
+                          </li>
                          </div>
                         )
                       } else {
                         return (
                           <div>
+                            <li>
                             <Checkbox value="locations" onChange={this.handleChange} name={location} >{location}</Checkbox>
+                            </li>
                           </div>
                         )
                       }    
                     })}
+                    </ul>
                   </div>
                   }
                 
 
-                  <div className="card-body">     
+                  <div>     
                   <ControlLabel>Adjust age range</ControlLabel>             
                     <FormGroup validationState={this.getValidationState()}>
-                      <InputGroup>
+                      <InputGroup className="name">
                         <InputGroup.Addon>Minimum age</InputGroup.Addon>
                         <FormControl onChange={this.handleChange} type="number" name="min" placeholder="The minimum age" ref="minAge"/>
                       </InputGroup>
@@ -146,9 +179,6 @@ class EditPreferencesPage extends PureComponent {
                     <InputGroup>
                         <InputGroup.Addon>Maximum age</InputGroup.Addon>
                         <FormControl onChange={this.handleChange} type="number" name="max" placeholder="The maximum age" required ref="maxAge"/>
-                        <div class="invalid-feedback">
-                         Please provide a valid city.
-                       </div>
                       </InputGroup>
                     </FormGroup> 
                     </div> 
@@ -173,13 +203,19 @@ class EditPreferencesPage extends PureComponent {
                   }
                   
                       
-                  </form>         
+                  </form>  
+                   
               </div>
-            </div>
-        </div>
-      </div>
+         </div>
+      //   </div>
+      // </div>
     )
   }
 }
 
 export default withRouter(EditPreferencesPage)
+
+
+    {/* <li>
+                            <Checkbox value="genres" name={genre} onChange={this.handleChange}>{genre}</Checkbox>
+                            </li> */} 
