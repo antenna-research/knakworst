@@ -1,16 +1,22 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import NavComponent from '../Nav/NavComponent'
 import Profile from './ProfileCard'
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import './styles/PersonalProfileContainer.scss'
 
 class PersonalProfileContainer extends PureComponent {
   render() {
     return (
       <div id={'PersonalProfileContainer'}>
         <NavComponent />
-        <Link to={`/profile/edit/${this.props.match.params.id}`}><FontAwesomeIcon icon="user-edit" /></Link>
+        {this.props.currentUser === this.props.match.params.id ? (
+        <div id='PersonalProfileContainerLinkDiv'>
+          <Link to={`/profile/edit/${this.props.match.params.id}`} className={'Personal-Profile-Links'}><FontAwesomeIcon icon='user-edit' /></Link>
+          <Link to={'/preferences'} className={'Personal-Profile-Links'}><FontAwesomeIcon icon='sliders-h' /></Link>
+        </div>
+          ) : (null)}
         <Profile profile={this.props.viewedUser} />
       </div>
     )

@@ -42,7 +42,7 @@ class EditPreferencesPage extends PureComponent {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.sendNewPrefences(this.state)
+    this.props.sendNewPreferences(this.state)
     this.props.history.push('/swipe')
   }
 
@@ -50,7 +50,6 @@ class EditPreferencesPage extends PureComponent {
     return (
       
       <div>
-         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossOrigin="anonymous" />
         <div className="container">
           <div className="col md-6">
               <div className="card">
