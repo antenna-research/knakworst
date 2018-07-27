@@ -6,15 +6,52 @@ import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import { saveProfile } from '../../actions/profile'
 import Multiselect from 'react-widgets/lib/Multiselect'
+import Combobox from 'react-widgets/lib/Combobox'
 import './styles/ProfileSetup.css'
 import 'react-widgets/dist/css/react-widgets.css'
 
 class ProfileSetup extends PureComponent {
 
-  handleSubmit = this.props.handleSubmit
-  pristine = this.props.pristine
-  reset = this.props.reset
-  submitting = this.props.submitting
+  handleSubmit = this.props.handleSubmit;
+  pristine = this.props.pristine;
+  reset = this.props.reset;
+  submitting = this.props.submitting;
+
+  // validation
+  required = value => (value || typeof value === 'number' ? undefined : 'Required');
+  maxLength = max => value =>
+    value && value.length > max ? `Must be ${max} characters or less` : undefined;
+  maxLength15 = this.maxLength(15);
+  minLength = min => value =>
+    value && value.length < min ? `Must be ${min} characters or more` : undefined;
+  minLength2 = this.minLength(2);
+  number = value =>
+    value && isNaN(Number(value)) ? 'Must be a number' : undefined;
+  minValue = min => value =>
+    value && value < min ? `Must be at least ${min}` : undefined;
+  minValue13 = this.minValue(13);
+  email = value =>
+    value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)
+      ? 'Invalid email address'
+      : undefined;
+  tooYoung = value =>
+    value && value < 13
+      ? 'You do not meet the minimum age requirement!'
+      : undefined;
+  aol = value =>
+    value && /.+@aol\.com/.test(value)
+      ? 'aol? ...seriously?'
+      : undefined;
+  alphaNumeric = value =>
+    value && /[^a-zA-Z0-9 ]/i.test(value)
+      ? 'Only alphanumeric characters'
+      : undefined;
+  phoneNumber = value =>
+    value && !/^\(?\d{3}\)?[- ]?\d{3}[- ]?\d{4}$/i.test(value)
+      ? 'Invalid phone number, must be 10 digits'
+      : undefined;
+
+
 
   renderMultiselect = ({ input, data, valueField, textField }) =>
     <Multiselect {...input}
@@ -23,74 +60,80 @@ class ProfileSetup extends PureComponent {
       data={data}
       valueField={valueField}
       textField={textField}
-    />
+    />;
 
-  youtubeSerial = value => value && [value.split('&')[0].split('watch?v=')[1],]
+  renderCombobox = ({ input, data }) =>
+    <Combobox {...input}
+      data={data} />;
+
+
+  youtubeSerial = value => value && [value.split('&')[0].split('watch?v=')[1],];
   youtubeUrl = value => {
     if ( !value.includes('youtube') ) {
       return "youtube.com/watch?v=" + value
     }
     return value
-  }
+  };
 
+  renderField = ({
+    input,
+    label,
+    type,
+    name,
+    meta: { touched, error, warning }
+  }) => (<div>
+      <label>{label}</label><br/>
+        <input {...input} className="form-control" name={name} type={type} />
+        {touched &&
+          ((error && <span className="validation-error">{error}</span>) ||
+            (warning && <span>{warning}</span>))}
+  </div>)
 
   render() {
     return (<div>
       <NavComponent />
       <form onSubmit={this.props.handleSubmit(submit)} id="profile-form">
-          <div>
-            <label>Username</label><br/>
-            <Field name="username" component="input" type="text" className="form-control"  />
-          </div>
+        <Field name="username" component="input" type="text" className="form-control" 
+        label="Username" component={this.renderField} validate={[this.required, this.maxLength15, this.minLength2]} warn={this.alphaNumeric} />
 
-          <div>
-            <label>First Name</label><br/>
-            <Field name="firstName" component="input" type="text" className="form-control" />
-          </div>
+        <Field name="firstName" component="input" type="text" className="form-control" 
+        label="First Name" component={this.renderField} validate={[this.required]} />
 
-          <div>
-            <label>Last Name</label><br/>
-            <Field name="lastName" component="input" type="text" className="form-control" />
-          </div>
+        <Field name="lastName" component="input" type="text" className="form-control" 
+        label="Last Name" component={this.renderField} validate={[this.required]} />
 
-          <div>
-            <label>Age</label><br/>
-            <Field name="age" component="input" type="text" className="form-control" />
-          </div>
+        <Field name="age" component="input" type="text" className="form-control" 
+        label="Age" component={this.renderField} validate={[this.required, this.number, this.minValue13]} />
 
-          <div>
-             <label>Phone</label><br/>
-             <Field name="phone" component="input" type="text" className="form-control" />
-          </div>
+        <Field name="phone" component="input" type="text" className="form-control" 
+        label="Phone Number" component={this.renderField} validate={[this.required, this.phoneNumber]} />
 
-          <div>
-             <label>Email</label><br/>
-             <Field name="email" component="input" type="email" className="form-control" />
-          </div>
+        <Field name="email" component="input" type="email" className="form-control" 
+        label="Email" component={this.renderField} validate={[this.required, this.email]} />
 
-          <div>
-             <label>City</label><br/>
-             <Field name="address" component="input" type="text" className="form-control" />
-          </div>
+        <div><label>What city do you live in?</label><br/>
+        <Field
+        name="address"
+        component={this.renderCombobox}
+        data={[ 'Amsterdam', 'Leiden', 'Rotterdam', 'Utrecht', 'Den Haag' ]}/>
+        </div>
 
-          <div><label>What genres do you play?</label><br/>
-          <Field
-          name="genres"
-          component={this.renderMultiselect}
-          data={[ 'Rock', 'Jazz', 'Funk', 'Reggae', 'SynthPop', 'Experimental' ]}/>
-          </div>
+        <div><label>What genres do you play?</label><br/>
+        <Field
+        name="genres"
+        component={this.renderMultiselect}
+        data={[ 'Rock', 'Jazz', 'Funk', 'Reggae', 'SynthPop', 'Experimental' ]}/>
+        </div>
 
-          <div><label>What instruments do you play?</label><br/>
-          <Field
-          name="instruments"
-          component={this.renderMultiselect}
-          data={[ 'Piano', 'Guitar', 'Bass', 'Drums', 'Tambourine', 'Vocals', 'Flute', 'Violin', 'Viola', 'Cello', 'Contrabass' ]}/>
-          </div>
+        <div><label>What instruments do you play?</label><br/>
+        <Field
+        name="instruments"
+        component={this.renderMultiselect}
+        data={[ 'Piano', 'Guitar', 'Bass', 'Drums', 'Tambourine', 'Vocals', 'Flute', 'Violin', 'Viola', 'Cello', 'Contrabass' ]}/>
+        </div>
 
-          <div>
-             <label>Youtube Link</label><br/>
-             <Field name="youtube" component="input" type="text" format={this.youtubeUrl} parse={this.youtubeSerial} className="form-control" />
-          </div>
+        <Field name="youtube" component="input" type="text" format={this.youtubeUrl} parse={this.youtubeSerial} className="form-control"  
+        label="Youtube" component={this.renderField} validate={[this.required]} />
 
     <button type="submit" className="btn btn-primary">Submit</button>
     </form>
