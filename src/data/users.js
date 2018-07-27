@@ -10,7 +10,7 @@ export default {
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Guitar', 'Piano', 'Bass'],
     youtube: ['bPQNal63IVI'],
-    image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Detail1_PetrusChristus.jpg'
   },
   2: {
     username: 'Tim2',
@@ -23,7 +23,7 @@ export default {
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Bass'],
     youtube: ['ii63fKLTSuU'],
-    image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Giovanni_Bellini_-_Portrait_of_a_Humanist_-_WGA01674.jpg/468px-Giovanni_Bellini_-_Portrait_of_a_Humanist_-_WGA01674.jpg'
   },
   3: {
     username: 'hangman',
@@ -36,7 +36,7 @@ export default {
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Piano'],
     youtube: ['qyy8bEDi1Eg'],
-    image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Rogier_van_der_Weyden_-_Portrait_of_a_Woman_with_a_Winged_Bonnet_-_Google_Art_Project.jpg/688px-Rogier_van_der_Weyden_-_Portrait_of_a_Woman_with_a_Winged_Bonnet_-_Google_Art_Project.jpg'
   },
   4: {
     username: 'isa',
@@ -49,7 +49,7 @@ export default {
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Piano'],
     youtube: ['bPQNal63IVI'],
-    image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Luca_Signorelli_-_Portrait_of_an_Old_Man_-_Gem%C3%A4ldegalerie_Berlin.jpg/675px-Luca_Signorelli_-_Portrait_of_an_Old_Man_-_Gem%C3%A4ldegalerie_Berlin.jpg'
   },
   5: {
     username: 'things',
@@ -62,7 +62,7 @@ export default {
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Piano'],
     youtube: ['bPQNal63IVI'],
-    image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Rogier_van_der_Weyden_-_Portrait_of_a_Lady_-_Google_Art_Project.jpg/747px-Rogier_van_der_Weyden_-_Portrait_of_a_Lady_-_Google_Art_Project.jpg'
   },
   6: {
     username: 'nederlander',
@@ -75,7 +75,7 @@ export default {
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Piano'],
     youtube: ['bPQNal63IVI'],
-    image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/e/ed/Bellini_-_Ritratto_virile_%282%29_-_Louvre_Parigi.jpg'
   },
   7: {
     username: 'flutist',
@@ -88,6 +88,6 @@ export default {
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Piano'],
     youtube: ['bPQNal63IVI'],
-    image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Detail1_PetrusChristus.jpg'
   }
 }
