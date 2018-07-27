@@ -225,7 +225,7 @@ class EditPreferencesPage extends PureComponent {
                             <Col sm={10}>
                               <FormControl onChange={this.handleChange} type="number" name="min" placeholder="The minimum age"/>
                             </Col>
-                            <Col componentClass={ControlLabel} sm={5}>
+                            <Col componentClass={ControlLabel} sm={7}>
                             <ControlLabel>Enter a minimum age</ControlLabel>
                             </Col>
                           </FormGroup>
@@ -236,7 +236,7 @@ class EditPreferencesPage extends PureComponent {
                             <Col sm={10}>
                               <FormControl onChange={this.handleChange} type="number" name="max" placeholder="The maximum age" />
                             </Col>
-                            <Col componentClass={ControlLabel} sm={5}>
+                            <Col componentClass={ControlLabel} sm={7}>
                             <ControlLabel>Enter a maximum age</ControlLabel>
                             </Col>
                           </FormGroup>
@@ -252,12 +252,14 @@ class EditPreferencesPage extends PureComponent {
 
                   {(this.state.age.min < 0 || this.state.age.max <=0 || (this.state.age.min > this.state.age.max)) && 
                     <div className="btn-card">   
-                    <p>
-                      <div class="alert alert-danger" role="alert">
-                         Make sure that you enter a correct age range!
-                       </div>
-                    </p>
-                    <Button type="submit" disabled className="btn" >Save preferences</Button>
+                      <p>
+                        <div class="alert alert-danger" role="alert">
+                          Make sure that you enter a correct age range!
+                        </div>
+                      </p>
+                    
+                      <Button type="submit" disabled className="btn" >Save preferences</Button>
+                   
                   </div>     
                   }
                                        

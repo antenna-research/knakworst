@@ -1,0 +1,25 @@
+@import '../../../scss-lib/mixin';
+@import '../../../scss-lib/var';
+
+#PersonalProfileContainer {
+
+  #PersonalProfileContainerLinkDiv {
+    @include flex;
+    justify-content: space-around;
+
+    .Personal-Profile-Links,
+    .Personal-Profile-Links:focus,
+    .Personal-Profile-Links:visited,
+    .Personal-Profile-Links:link,
+    .Personal-Profile-Links:active {
+      font-size: 1em;
+      text-decoration: none;
+      color: $FONT_COLOR;
+      .Personal-Profile-Links:hover {
+        color: $DUTCH_ORANGE;
+      }
+    }
+
+
+  }
+}

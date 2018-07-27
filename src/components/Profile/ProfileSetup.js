@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import './styles/ProfileSetup.css'
 import NavComponent from "../Nav/NavComponent";
 import { withRouter } from 'react-router-dom'
 import { Field, reduxForm } from 'redux-form'
@@ -10,7 +11,6 @@ import 'react-widgets/dist/css/react-widgets.css'
 
 class ProfileSetup extends PureComponent {
 
-  // { handleSubmit, pristine, reset, submitting } = this.props
   handleSubmit = this.props.handleSubmit
   pristine = this.props.pristine
   reset = this.props.reset
@@ -25,27 +25,19 @@ class ProfileSetup extends PureComponent {
       textField={textField}
     />
 
-  submit = (values, x, other) => {
-    console.log('values', values)
-    console.log('other', other)
-    console.log('other.currentUserId', other.currentUserId)
-    values.id = other.currentUserId
-    saveProfile( values, other.currentUserId )
-    other.history.push('/profile/'+other.currentUserId)
+  youtubeSerial = value => value && [value.split('&')[0].split('watch?v=')[1],]
+  youtubeUrl = value => {
+    if ( !value.includes('youtube') ) {
+      return "youtube.com/watch?v=" + value
+    }
+    return value
   }
 
-  render() {
-    if (this.state) {
-      console.log('this.state.form.values', this.state.form.profile.values)      
-    }
-    console.log('this', this)
-    // console.log('this.props.initialValues', this.props.initialValues)
 
+  render() {
     return (<div>
       <NavComponent />
-      { console.log('submit', submit) }
       <form onSubmit={this.props.handleSubmit(submit)} id="profile-form">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossOrigin="anonymous" />
           <div>
             <label>Username</label><br/>
             <Field name="username" component="input" type="text" className="form-control"  />
@@ -97,8 +89,7 @@ class ProfileSetup extends PureComponent {
 
           <div>
              <label>Youtube Link</label><br/>
-             <Field name="youtube" component="input" type="text" className="form-control" /> { // // {"youtube.com/watch?v="+value.youtube} 
-                                                                     }
+             <Field name="youtube" component="input" type="text" format={this.youtubeUrl} parse={this.youtubeSerial} className="form-control" />
           </div>
 
     <button type="submit" className="btn btn-primary">Submit</button>
@@ -109,9 +100,6 @@ class ProfileSetup extends PureComponent {
 }
 
 const submit = (values, x, other) => {
-  console.log('values', values)
-  console.log('other', other)
-  console.log('other.currentUserId', other.currentUserId)
   const newData = {
     id: other.currentUserId,
     username: values.username,
@@ -123,21 +111,22 @@ const submit = (values, x, other) => {
     address: values.address,
     instruments: values.instruments,
     genres: values.genres,
-    youtube: values.youtube // .split('watch?v=')[1].split('&')[0]
+    youtube: values.youtube //.split('&')[0].split('watch?v=')[1],]
   }
   other.saveProfile( newData, other.currentUserId )
   other.history.push('/profile/'+other.currentUserId)
 }
 
 const mapStateToProps = (state) => {
-  let ob = {
+  let props = {
     currentUserId: state.currentUser,
     users: state.users
   }
   if (state.users && state.currentUser) {
-    ob['initialValues'] =  state.users[parseInt(state.currentUser)]  
+    const currentProfile = state.users[parseInt(state.currentUser)]
+    props['initialValues'] =  currentProfile
   }
-  return ob
+  return props
 }
 
 ProfileSetup = reduxForm({
