@@ -1,10 +1,11 @@
 import './styles/EditPreferences.css'
 import React, { PureComponent } from 'react'
 import { Form , FormGroup, Checkbox, ControlLabel, Grid, Col, FormControl, Button, Label, InputGroup, InputGroupAddon, HelpBlock} from 'react-bootstrap';
-import {allGenres, allInstruments, allLocations} from '../../data/alternatives-per-preference' ;
+import {allGenres, allInstruments, allLocations} from '../../data/alternatives-per-preference';
+import {withRouter} from 'react-router-dom';
 
-export default class EditPreferencesPage extends PureComponent {
- 
+class EditPreferencesPage extends PureComponent {
+  
 
   state = {
     genres: this.props.preferences[this.props.currentUser].genres.filter(genre => allGenres.includes(genre)),
@@ -16,12 +17,17 @@ export default class EditPreferencesPage extends PureComponent {
     }
   }
 
+  
+
   handleChange = (e) => {
    if (e.target.checked && e.target.name !== 'max' && e.target.name !== 'min') {
-      if (!this.state[e.target.value].includes(e.target.name)) this.setState({[e.target.value]: this.state[e.target.value].concat(e.target.name)}) 
+      if (!this.state[e.target.value].includes(e.target.name)) {
+        this.setState({[e.target.value]: this.state[e.target.value].concat(e.target.name)}) 
+        }
       } 
       else if (!e.target.checked && e.target.name !== 'max' && e.target.name !== 'min') {
-      const newArray = this.state[e.target.value].filter(item => {if (item !== e.target.name) item })
+      const newArray = this.state[e.target.value].filter(item => {if (item !== e.target.name) {
+        return item}})
       this.setState({[e.target.value]: newArray})
       }
    if(e.target.name === 'min') this.setState({ age: { ...this.state.age, [e.target.name]: Number(e.target.value)} });
@@ -36,13 +42,11 @@ export default class EditPreferencesPage extends PureComponent {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.getValidationState();
     this.props.sendNewPrefences(this.state)
+    this.props.history.push('/swipe')
   }
 
   render() {
-    
-
     return (
       
       <div>
@@ -167,6 +171,7 @@ export default class EditPreferencesPage extends PureComponent {
                     <Button type="submit" disabled >Save preferences</Button>
                   </div>     
                   }
+                  
                       
                   </form>         
               </div>
@@ -176,3 +181,5 @@ export default class EditPreferencesPage extends PureComponent {
     )
   }
 }
+
+export default withRouter(EditPreferencesPage)

@@ -6643,7 +6643,7 @@ module.exports = (function () {
 
 /***/ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./src/components/App/styles/App.css":
 /*!*********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader?{"importLoaders":1}!./node_modules/postcss-loader/lib?{"ident":"postcss","plugins":[null,null]}!./src/components/App/styles/App.css ***!
+  !*** ./node_modules/css-loader?{"importLoaders":1}!./node_modules/postcss-loader/lib?{"ident":"postcss","plugins":[null,null]}!./src/components/App/styles/App.scss ***!
   \*********************************************************************************************************************************************************************/
 /*! dynamic exports provided */
 /*! all exports used */
@@ -30307,9 +30307,9 @@ function formatMessage(message, isError) {
 
   // Remove webpack-specific loader notation from filename.
   // Before:
-  // ./~/css-loader!./~/postcss-loader!./src/App.css
+  // ./~/css-loader!./~/postcss-loader!./src/App.scss
   // After:
-  // ./src/App.css
+  // ./src/App.scss
   if (lines[0].lastIndexOf('!') !== -1) {
     lines[0] = lines[0].substr(lines[0].lastIndexOf('!') + 1);
   }
@@ -66259,7 +66259,7 @@ var dislikeUser = function dislikeUser(mainUserId, profileUserId) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__styles_App_css__ = __webpack_require__(/*! ./styles/App.css */ "./src/components/App/styles/App.css");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__styles_App_css__ = __webpack_require__(/*! ./styles/App.scss */ "./src/components/App/styles/App.scss");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__styles_App_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__styles_App_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Welcome_WelcomePage__ = __webpack_require__(/*! ../Welcome/WelcomePage */ "./src/components/Welcome/WelcomePage.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_svg_core__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js");
@@ -66324,7 +66324,7 @@ var App = function (_Component) {
 
 /***/ "./src/components/App/styles/App.css":
 /*!*******************************************!*\
-  !*** ./src/components/App/styles/App.css ***!
+  !*** ./src/components/App/styles/App.scss ***!
   \*******************************************/
 /*! dynamic exports provided */
 /***/ (function(module, exports, __webpack_require__) {
@@ -66332,7 +66332,7 @@ var App = function (_Component) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--1-oneOf-2-1!../../../../node_modules/postcss-loader/lib??postcss!./App.css */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./src/components/App/styles/App.css");
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--1-oneOf-2-1!../../../../node_modules/postcss-loader/lib??postcss!./App.scss */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./src/components/App/styles/App.scss");
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -66346,8 +66346,8 @@ if(content.locals) module.exports = content.locals;
 if(true) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept(/*! !../../../../node_modules/css-loader??ref--1-oneOf-2-1!../../../../node_modules/postcss-loader/lib??postcss!./App.css */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./src/components/App/styles/App.css", function() {
-			var newContent = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--1-oneOf-2-1!../../../../node_modules/postcss-loader/lib??postcss!./App.css */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./src/components/App/styles/App.css");
+		module.hot.accept(/*! !../../../../node_modules/css-loader??ref--1-oneOf-2-1!../../../../node_modules/postcss-loader/lib??postcss!./App.scss */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./src/components/App/styles/App.scss", function() {
+			var newContent = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--1-oneOf-2-1!../../../../node_modules/postcss-loader/lib??postcss!./App.scss */ "./node_modules/css-loader/index.js?{\"importLoaders\":1}!./node_modules/postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"plugins\":[null,null]}!./src/components/App/styles/App.scss");
 			if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
 			update(newContent);
 		});
