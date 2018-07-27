@@ -113,6 +113,7 @@ const submit = (values, x, other) => {
     youtube: [values.youtube.split('&')[0].split('watch?v=')[1],]
   }
   other.saveProfile( newData, other.currentUserId, other)
+  other.history.push('/profile/' + other.currentUserId)
 }
 
 const mapStateToProps = (state) => {

@@ -17,7 +17,6 @@ export const saveProfile = (profileData, currentUser, other) => {
 
       await Promise.all([saveProfileData])
         .catch(e => console.log(e))
-        .then(other.history.push('/profile/' + other.currentUserId))
       console.log('done')
 
       dispatch({
