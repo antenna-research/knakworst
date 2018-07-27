@@ -10,6 +10,10 @@
     margin-bottom: calc(#{$mainPadding});
     text-align: center;
   }
+
+  h2 {
+    margin-bottom: 1em;
+  }
   
   ul {
     display: flex;
@@ -53,6 +57,11 @@
     margin-left: 10%;
     width: 80%;
 
+  }
+
+  .control-message {
+    margin-top: 1em;
+    font-size: 80%;
   }
 }
 
