@@ -113,7 +113,6 @@ const submit = (values, x, other) => {
     genres: values.genres,
     youtube: [values.youtube.split('&')[0].split('watch?v=')[1],]
   }
-  // console.log(newData.youtube)
   other.saveProfile( newData, other.currentUserId )
   other.history.push('/profile/'+other.currentUserId)
 }

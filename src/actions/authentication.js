@@ -156,12 +156,12 @@ export const resetDatabase = () => {
     const user = firebase.auth().currentUser
     if (user) {
       console.log('db')
-      const resFromUers = firebase
+      const resFromUsers = firebase
         .database()
         .ref('users/')
         .set(usersData)
 
-      const resFromUers2 = firebase
+      const resFromUsers2 = firebase
         .database()
         .ref('users/' + user.uid)
         .set({
@@ -209,8 +209,8 @@ export const resetDatabase = () => {
           }
         })
       await Promise.all([
-        resFromUers,
-        resFromUers2,
+        resFromUsers,
+        resFromUsers2,
         resFromMatches,
         resFromMatches2,
         resFromPreferences,
