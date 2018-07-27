@@ -31,7 +31,12 @@ class SwipeContainer extends PureComponent {
   componentDidMount() {
     this._notificationSystem = this.refs.notificationSystem
 
-    this._matches = this.props.matches[this.props.currentUserId].matches
+    this._matches =
+      this.props.matches[this.props.currentUserId].matches !== 0
+        ? this.props.matches[this.props.currentUserId].matches
+        : []
+
+    console.log(this._matches)
 
     this.setState({
       currentCandidateId: this.state.viableCandidates[0]
@@ -39,8 +44,10 @@ class SwipeContainer extends PureComponent {
   }
 
   componentDidUpdate = () => {
-    const updatedMatch = this.props.matches[this.props.currentUserId].matches
+    console.log(typeof this._matches, this._matches)
+    const updatedMatch = this.props.matches[this.props.currentUserId].matches || []
     const lastUserId = updatedMatch[updatedMatch.length - 1]
+    console.log(updatedMatch)
     const isMatch = !this._matches.includes(lastUserId)
 
     if (isMatch && lastUserId) {
@@ -98,7 +105,7 @@ class SwipeContainer extends PureComponent {
             swipedRight={this.swipedRight}
           />
         ) : (
-            <h1>No more Musicians match your filter! 😭</h1>
+          <h1>No more Musicians match your filter! 😭</h1>
         )}
       </div>
     )
