@@ -75,7 +75,7 @@ class EditPreferencesPage extends PureComponent {
                     <ul>
                     {allGenres.map(genre => {
 
-                      if (this.props.preferences[this.props.currentUser].genres.includes(genre)) {
+                      if (this.props.preferences[this.props.currentUserId].genres.includes(genre)) {
                         return (
                           <div>
                             <li>
