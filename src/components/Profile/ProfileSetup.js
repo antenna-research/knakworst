@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import './styles/ProfileSetup.css'
+import './styles/ProfileSetup.scss'
 import NavComponent from "../Nav/NavComponent";
 import { connect } from 'react-redux'
 import { saveProfile } from '../../actions/profile'

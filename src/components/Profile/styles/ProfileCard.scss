@@ -9,18 +9,11 @@
   max-height: 70vh;
   max-width: 600px;
   margin: 2em;
-
-  @include tablet() {
-    --width: 46%;
-    --maxWidth: 500px;
-
-    @include flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  @include pc() {
-  }
+  @include flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-flow: wrap;
 
 	overflow-y: auto;
   overflow-x: hidden;
@@ -29,46 +22,54 @@
   border-radius: 1em;
 
 	h1 {
-			color: $DUTCH_ORANGE;
+    color: $DUTCH_ORANGE;
 	}
-	ul {
-			display: flex;
-			flex-direction: row;
-			justify-content: space-around;
-			align-items: center;
-			width: inherit;
-			list-style-type: none;
-			padding: 0;
-			margin: 1.5em;
-    .profile-genres {
-        padding: 0.4em;
-        margin: 0 0.25em 0 0.25em;
-        background-color: $DUTCH_ORANGE;
-        color: #ffffff;
-      }
 
-      & .profile-instruments & li {
-        background-color: #ffffff;
-			}
+	ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: inherit;
+    list-style-type: none;
+    padding: 0;
+    margin: 1.5em;
+    .profile-genres {
+      padding: 0.4em;
+      margin: 0 0.25em 0 0.25em;
+      background-color: $DUTCH_ORANGE;
+      color: #ffffff;
+      }
 	  }
 
   iframe {
-    width: 100vh;
-    height: 56vh;
+    min-width: 100vh;
+    min-height: 56vh;
   }
 
-  .profile-instruments {
-    background: url('../../../data/musical-instruments.png') no-repeat;
-    height: 50px;
-    min-width: 50px;
-    border-radius: 50%;
-    border: none;
-    .Piano {background-position: -150px -384px;}
-    .Guitar {background-position: -390px -562px;}
-    .Bass {background-position: -342px -143px;}
-    .Drums {background-position: -91px -141px;}
-    .Flute {background-position: -568px -203px;}
-    .Timpani {background-position: -214px -204px;}
-
+  .profile-info {
+    @include flex;
+    flex-direction: column;
+    text-align: center;
   }
+
+  div.profile-instruments-div {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-around;
+    .profile-instruments {
+      background: url('../../../data/musical-instruments.png') no-repeat;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      border: none;
+      &.Piano {background-position: -150px -384px;}
+      &.Guitar {background-position: -390px -562px;}
+      &.Bass {background-position: -342px -143px;}
+      &.Drums {background-position: -91px -141px;}
+      &.Flute {background-position: -568px -203px;}
+      &.Timpani {background-position: -214px -204px;}
+    }
+  }
+
 }
