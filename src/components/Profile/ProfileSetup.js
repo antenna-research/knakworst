@@ -92,6 +92,7 @@ class ProfileSetup extends PureComponent {
   render() {
     return (<div>
       <NavComponent />
+      <h1>Edit Your Profile</h1>
       <form onSubmit={this.props.handleSubmit(submit)} id="profile-form">
         <Field name="username" component="input" type="text" className="form-control" 
         label="Username" component={this.renderField} validate={[this.required, this.maxLength15, this.minLength2]} warn={this.alphaNumeric} />
