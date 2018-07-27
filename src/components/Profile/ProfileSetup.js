@@ -124,8 +124,11 @@ const mapStateToProps = (state) => {
     users: state.users
   }
   if (state.users && state.currentUser) {
-    const currentProfile = state.users[parseInt(state.currentUser)]
+    const currentProfile = state.users[state.currentUser]
     props['initialValues'] =  currentProfile
+    if ( props['initialValues'].youtube && !props['initialValues'].youtube.includes('youtube') ) {
+      props['initialValues'].youtube = "youtube.com/watch?v=" + currentProfile.youtube
+    }
   }
   return props
 }
