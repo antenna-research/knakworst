@@ -14,7 +14,6 @@ class ProfileSetup extends PureComponent {
   handleSubmit = this.props.handleSubmit
   pristine = this.props.pristine
   reset = this.props.reset
-  submitting = this.props.submitting
 
   renderMultiselect = ({ input, data, valueField, textField }) =>
     <Multiselect {...input}
@@ -113,8 +112,7 @@ const submit = (values, x, other) => {
     genres: values.genres,
     youtube: [values.youtube.split('&')[0].split('watch?v=')[1],]
   }
-  other.saveProfile( newData, other.currentUserId )
-  other.history.push('/profile/'+other.currentUserId)
+  other.saveProfile( newData, other.currentUserId, other)
 }
 
 const mapStateToProps = (state) => {
@@ -135,7 +133,6 @@ const mapStateToProps = (state) => {
 ProfileSetup = reduxForm({
   form: 'profile',
   enableReinitialize: true,
-  onSubmit: submit
 })(ProfileSetup)
 
 export default connect(mapStateToProps, { saveProfile })(withRouter(ProfileSetup))

@@ -1,9 +1,10 @@
 import firebase from "../firebase/settings"
+import {fetchData} from "./authentication"
 
 export const SAVE_PROFILE = 'SAVE_PROFILE'
 export const SET_PROFILE = 'SET_PROFILE'
 
-export const saveProfile = profileData => {
+export const saveProfile = (profileData, currentUser, other) => {
   return async dispatch => {
     const user = firebase.auth().currentUser
     if (user) {
@@ -14,9 +15,9 @@ export const saveProfile = profileData => {
         .ref('users/' + user.uid)
         .set(profileData)
 
-      await Promise.all([
-        saveProfileData
-      ]).catch(e => console.log(e))
+      await Promise.all([saveProfileData])
+        .catch(e => console.log(e))
+        .then(other.history.push('/profile/' + other.currentUserId))
       console.log('done')
     }
   }
