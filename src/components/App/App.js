@@ -17,20 +17,8 @@ import { fab, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import {
-  faUserCircle,
-  faMusic,
-  faComment,
-  faTimesCircle,
-  faHeart,
-  faSlidersH,
-  faUserEdit,
-  faSpinner
-} from '@fortawesome/free-solid-svg-icons'
-import { fab, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
-import { library } from '@fortawesome/fontawesome-svg-core'
+
 import React, { Component } from 'react'
-import Auth from '../Auth/Auth'
 
 import {
   checkAuth,
