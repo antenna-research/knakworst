@@ -1,10 +1,37 @@
 
-#profile-form {
-	width: 98vw;
-	max-width: 400px;
-	margin: 0px auto 1em;
+label {
+  font-size: 80%;
+  margin-bottom: 0;
+  font-weight: bold;
 }
 
-#profile-form > div, #profile-form .btn-primary {
-	margin-top: 1em;
+h1 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+  color: #ff4f00;
+}
+
+#profile-form {
+  width: 98vw;
+  max-width: 84%;
+  margin: 0px auto 1em;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 10px 30px;
+}
+
+#profile-form > div {
+  margin-top: 1em;
+}
+
+#profile-form .btn-primary {
+  background-color: #ff4f00;
+  margin: 1em 0 0.4em;
+  border-width: 0px;
+}
+
+.validation-error {
+  font-size: 80%;
+  color: red; 
 }
