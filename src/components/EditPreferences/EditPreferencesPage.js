@@ -226,7 +226,7 @@ class EditPreferencesPage extends PureComponent {
                               <FormControl onChange={this.handleChange} type="number" name="min" placeholder="The minimum age"/>
                             </Col>
                             <Col componentClass={ControlLabel} sm={7}>
-                            <ControlLabel>Enter a minimum age</ControlLabel>
+                            <p className="control-message">Enter a minimum age</p>
                             </Col>
                           </FormGroup>
 
@@ -237,7 +237,7 @@ class EditPreferencesPage extends PureComponent {
                               <FormControl onChange={this.handleChange} type="number" name="max" placeholder="The maximum age" />
                             </Col>
                             <Col componentClass={ControlLabel} sm={7}>
-                            <ControlLabel>Enter a maximum age</ControlLabel>
+                            <p className="control-message">Enter a maximum age</p>
                             </Col>
                           </FormGroup>
                         </Form>
