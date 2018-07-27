@@ -22,7 +22,7 @@ export default {
     address: 'Leiden',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Bass'],
-    youtube: ['bPQNal63IVI'],
+    youtube: ['ii63fKLTSuU'],
     image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
   },
   3: {
@@ -35,7 +35,7 @@ export default {
     address: 'Amsterdam',
     genres: ['Rock', 'Jazz', 'Pop'],
     instruments: ['Piano'],
-    youtube: ['bPQNal63IVI'],
+    youtube: ['qyy8bEDi1Eg'],
     image: 'https://fakeimg.pl/1200x800/eb61a9/fff'
   },
   4: {

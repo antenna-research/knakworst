@@ -24,6 +24,15 @@ class ProfileSetup extends PureComponent {
       textField={textField}
     />
 
+  youtubeSerial = value => value && [value.split('&')[0].split('watch?v=')[1],]
+  youtubeUrl = value => {
+    if ( !value.includes('youtube') ) {
+      return "youtube.com/watch?v=" + value
+    }
+    return value
+  }
+
+
   render() {
     return (<div>
       <NavComponent />
@@ -79,7 +88,7 @@ class ProfileSetup extends PureComponent {
 
           <div>
              <label>Youtube Link</label><br/>
-             <Field name="youtube" component="input" type="text" className="form-control" />
+             <Field name="youtube" component="input" type="text" format={this.youtubeUrl} normalize={this.youtubeSerial} className="form-control" />
           </div>
 
     <button type="submit" className="btn btn-primary">Submit</button>
@@ -101,9 +110,8 @@ const submit = (values, x, other) => {
     address: values.address,
     instruments: values.instruments,
     genres: values.genres,
-    youtube: [values.youtube.split('&')[0].split('watch?v=')[1],]
+    youtube: values.youtube //.split('&')[0].split('watch?v=')[1],]
   }
-  // console.log(newData.youtube)
   other.saveProfile( newData, other.currentUserId )
   other.history.push('/profile/'+other.currentUserId)
 }
@@ -116,9 +124,6 @@ const mapStateToProps = (state) => {
   if (state.users && state.currentUser) {
     const currentProfile = state.users[parseInt(state.currentUser)]
     props['initialValues'] =  currentProfile
-    if ( !props['initialValues'].youtube.includes('youtube') ) {
-      props['initialValues'].youtube = "youtube.com/watch?v=" + currentProfile.youtube
-    }
   }
   return props
 }
