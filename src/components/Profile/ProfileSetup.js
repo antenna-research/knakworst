@@ -88,7 +88,7 @@ class ProfileSetup extends PureComponent {
 
           <div>
              <label>Youtube Link</label><br/>
-             <Field name="youtube" component="input" type="text" format={this.youtubeUrl} normalize={this.youtubeSerial} className="form-control" />
+             <Field name="youtube" component="input" type="text" format={this.youtubeUrl} parse={this.youtubeSerial} className="form-control" />
           </div>
 
     <button type="submit" className="btn btn-primary">Submit</button>
