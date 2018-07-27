@@ -10,13 +10,13 @@ class MatchesPageContainer extends PureComponent {
       <div id={'MatchesPageContainer'}>
         <NavComponent />
         {this.props.ids.length ? (
-            <MatchesPage matchedUsers={this.props.matchedUsers}/>
+          <MatchesPage matchedUsers={this.props.matchedUsers} />
         ) : (
           <div id="MatchesPageContainer-NoMatches">
             <h1>You've not matched with any musicians 😭</h1>
             <p>Click on the 🎵 to keep swiping</p>
-          </div>)
-        }
+          </div>
+        )}
       </div>
     )
   }
@@ -25,13 +25,15 @@ class MatchesPageContainer extends PureComponent {
 const mapStateToProps = state => {
   const currentUserId = state.currentUser
   const ids = state.matches[currentUserId].matches
-  const matchedUsers = state.matches[currentUserId].matches.map((id, i) => {
-    return {
-      ...state.users[id],
-      id: ids[i]
-    }
-  })
-    return {
+  const matchedUsers = state.matches[currentUserId].matches
+    ? state.matches[currentUserId].matches.map((id, i) => {
+        return {
+          ...state.users[id],
+          id: ids[i]
+        }
+      })
+    : []
+  return {
     matchedUsers,
     ids: ids
   }

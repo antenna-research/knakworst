@@ -32,6 +32,8 @@ class SwipeContainer extends PureComponent {
     this._notificationSystem = this.refs.notificationSystem
 
     this._matches = this.props.matches[this.props.currentUserId].matches
+      ? this.props.matches[this.props.currentUserId].matches
+      : []
 
     this.setState({
       currentCandidateId: this.state.viableCandidates[0]
@@ -39,8 +41,9 @@ class SwipeContainer extends PureComponent {
   }
 
   componentDidUpdate = () => {
-    const updatedMatch = this.props.matches[this.props.currentUserId].matches
+    const updatedMatch = this.props.matches[this.props.currentUserId].matches || []
     const lastUserId = updatedMatch[updatedMatch.length - 1]
+
     const isMatch = !this._matches.includes(lastUserId)
 
     if (isMatch && lastUserId) {
@@ -98,23 +101,14 @@ class SwipeContainer extends PureComponent {
             swipedRight={this.swipedRight}
           />
         ) : (
-            <h1>No more Musicians match your filter! 😭</h1>
+          <h1>No more Musicians match your filter! 😭</h1>
         )}
       </div>
     )
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    users: state.users,
-    currentUserId: state.currentUser,
-    matches: state.matches,
-    preferences: state.preferences
-  }
-}
-
 export default connect(
-  mapStateToProps,
+  null,
   { likeUser, dislikeUser }
 )(SwipeContainer)

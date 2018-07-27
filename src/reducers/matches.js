@@ -1,6 +1,9 @@
+import { LOGOUT_USER } from '../actions/authentication'
+
 import _ from 'lodash'
 
 import { DISLIKE_USER, LIKE_USER } from '../actions/swipe'
+import { SET_MATCHES } from '../actions/matches'
 import matches from '../data/matches'
 
 const updateMatches = (state, mainUserId, profileUserId) => {
@@ -24,16 +27,25 @@ const likeUser = (state, { mainUserId, profileUserId }) => {
 
 const dislikeUser = (state, { mainUserId, profileUserId }) => {
   const newState = _.cloneDeep(state)
-  newState[mainUserId].dislikes = [...newState[mainUserId].dislikes, profileUserId]
+
+  newState[mainUserId].dislikes = newState[mainUserId].dislikes
+    ? [...newState[mainUserId].dislikes, profileUserId]
+    : [profileUserId]
   return newState
 }
 
-const reducer = (state = matches, { type, payload } = {}) => {
+const reducer = (state = null, { type, payload } = {}) => {
   switch (type) {
     case LIKE_USER:
-      return likeUser(state, payload)
+      return payload.newState
     case DISLIKE_USER:
-      return dislikeUser(state, payload)
+      return payload.newState
+    case SET_MATCHES:
+      return {
+        ...payload.matches
+      }
+    case LOGOUT_USER:
+      return null
     default:
       return state
   }

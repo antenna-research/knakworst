@@ -1,20 +1,17 @@
 @import '../../../scss-lib/mixin';
 @import '../../../scss-lib/var';
+#Profile-component{
+  max-width: 450px;
+  max-height: 70vh;
+  margin: auto;
+}
 
 #Profile-card {
-  $mainPadding: 50px;
-
-  --width: 80%;
-  --maxWidth: 600px;
-  max-height: vh;
-  max-width: 600px;
-  margin: 2em;
   @include flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   flex-flow: wrap;
-
 	overflow-y: auto;
   overflow-x: hidden;
 	padding: 0 2em 2em 2em;
@@ -57,6 +54,7 @@
     display:flex;
     flex-direction:row;
     justify-content: space-around;
+    flex-wrap: wrap;
     .profile-instruments {
       background: url('../../../data/musical-instruments.png') no-repeat;
       height: 50px;
@@ -67,8 +65,12 @@
       &.Guitar {background-position: -390px -562px;}
       &.Bass {background-position: -342px -143px;}
       &.Drums {background-position: -91px -141px;}
+      &.Tambourine {background-position: -273px -443px;}
+      &.Vocals {background: url('../../../data/microphone.png');}
       &.Flute {background-position: -568px -203px;}
-      &.Timpani {background-position: -214px -204px;}
+      &.Violin {background-position: -213px -503px;}
+      &.Cello {background-position: -213px -25px;}
+      &.Saxophone {background-position: -336px -23px; }
     }
   }
 

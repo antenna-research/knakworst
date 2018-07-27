@@ -94,22 +94,22 @@ class ProfileSetup extends PureComponent {
       <NavComponent />
       <h1>Edit Your Profile</h1>
       <form onSubmit={this.props.handleSubmit(submit)} id="profile-form">
-        <Field name="username" component="input" type="text" className="form-control" 
+        <Field name="username" component="input" type="text" className="form-control"
         label="Username" component={this.renderField} validate={[this.required, this.maxLength15, this.minLength2]} warn={this.alphaNumeric} />
 
-        <Field name="firstName" component="input" type="text" className="form-control" 
+        <Field name="firstName" component="input" type="text" className="form-control"
         label="First Name" component={this.renderField} validate={[this.required]} />
 
-        <Field name="lastName" component="input" type="text" className="form-control" 
+        <Field name="lastName" component="input" type="text" className="form-control"
         label="Last Name" component={this.renderField} validate={[this.required]} />
 
-        <Field name="age" component="input" type="text" className="form-control" 
+        <Field name="age" component="input" type="text" className="form-control"
         label="Age" component={this.renderField} validate={[this.required, this.number, this.minValue13]} />
 
-        <Field name="phone" component="input" type="text" className="form-control" 
+        <Field name="phone" component="input" type="text" className="form-control"
         label="Phone Number" component={this.renderField} validate={[this.required, this.phoneNumber]} />
 
-        <Field name="email" component="input" type="email" className="form-control" 
+        <Field name="email" component="input" type="email" className="form-control"
         label="Email" component={this.renderField} validate={[this.required, this.email]} />
 
         <div><label>What city do you live in?</label><br/>
@@ -126,14 +126,14 @@ class ProfileSetup extends PureComponent {
         data={[ 'Rock', 'Jazz', 'Funk', 'Reggae', 'SynthPop', 'Experimental' ]}/>
         </div>
 
-        <div><label>What instruments do you play?</label><br/>
-        <Field
-        name="instruments"
-        component={this.renderMultiselect}
-        data={[ 'Piano', 'Guitar', 'Bass', 'Drums', 'Tambourine', 'Vocals', 'Flute', 'Violin', 'Viola', 'Cello', 'Contrabass' ]}/>
-        </div>
+          <div><label>What instruments do you play?</label><br/>
+          <Field
+          name="instruments"
+          component={this.renderMultiselect}
+          data={[ 'Piano', 'Guitar', 'Bass', 'Drums', 'Tambourine', 'Vocals', 'Flute', 'Violin', 'Cello', 'Saxophone' ]}/>
+          </div>
 
-        <Field name="youtube" component="input" type="text" format={this.youtubeUrl} parse={this.youtubeSerial} className="form-control"  
+        <Field name="youtube" component="input" type="text" format={this.youtubeUrl} parse={this.youtubeSerial} className="form-control"
         label="Youtube Link" component={this.renderField} validate={[this.required]} />
 
     <button type="submit" className="btn btn-primary">Submit</button>
@@ -157,8 +157,8 @@ const submit = (values, x, other) => {
     genres: values.genres,
     youtube: values.youtube //.split('&')[0].split('watch?v=')[1],]
   }
-  other.saveProfile( newData, other.currentUserId )
-  other.history.push('/profile/'+other.currentUserId)
+  other.saveProfile( newData, other.currentUserId, other)
+  other.history.push('/profile/' + other.currentUserId)
 }
 
 const mapStateToProps = (state) => {
@@ -167,7 +167,7 @@ const mapStateToProps = (state) => {
     users: state.users
   }
   if (state.users && state.currentUser) {
-    const currentProfile = state.users[parseInt(state.currentUser)]
+    const currentProfile = state.users[state.currentUser]
     props['initialValues'] =  currentProfile
   }
   return props
@@ -176,7 +176,6 @@ const mapStateToProps = (state) => {
 ProfileSetup = reduxForm({
   form: 'profile',
   enableReinitialize: true,
-  onSubmit: submit
 })(ProfileSetup)
 
 export default connect(mapStateToProps, { saveProfile })(withRouter(ProfileSetup))

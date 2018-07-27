@@ -8,6 +8,7 @@ class SignupContainer extends Component {
   state = {
     email: '',
     password: ''
+    // loading: false
   }
 
   onInputChange = e => {
@@ -16,17 +17,34 @@ class SignupContainer extends Component {
       [e.target.name]: e.target.value
     })
   }
-
-  onSubmit = e => {
-    e.preventDefault()
+  componentDidUpdate(prevState) {
+    if (this.props.currentUser !== prevState.currentUser) {
+      // this.props.history.replace(`/profile/${this.props.currentUser}`)
+      this.props.history.replace('/')
+    }
+  }
+  onCreateUser = e => {
     this.props.createUser({ ...this.state })
   }
+  onLogin = e => {
+    this.props.loginUser()
+    this.props.history.push('/swipe')
+  }
+
   render() {
-    return <Signup onInputChange={this.onInputChange} onSubmit={this.onSubmit} />
+    return (
+      <Signup
+        onInputChange={this.onInputChange}
+        onCreateUser={this.onCreateUser}
+        onLogin={this.onLogin}
+      />
+    )
   }
 }
-
+const mapStateToProps = state => ({
+  currentUser: state.currentUser
+})
 export default connect(
-  null,
-  { createUser }
+  mapStateToProps,
+  { createUser, loginUser }
 )(SignupContainer)
