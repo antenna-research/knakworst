@@ -4,101 +4,28 @@
 #preferencespage {
   $mainPadding: 50px;
 
-  --width: 80%;
-  --maxWidth: 600px;
-  max-height: 70vh;
-  max-width: 600px;
-  margin: 2em;
-
-  @include tablet() {
-    --width: 46%;
-    --maxWidth: 500px;
-
-    @include flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  @include pc() {
-  }
-
-	overflow-y: auto;
-  overflow-x: hidden;
-	padding: 0 2em 2em 2em;
-  @include div-border-shadow;
-  border-radius: 1em;
-
-
   h1 {
     margin-top: calc(#{$mainPadding} - 2rem);
     color: $DUTCH_ORANGE;
+    margin-bottom: calc(#{$mainPadding});
+    text-align: center;
   }
   
   ul {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    align-items: left;
     width: inherit;
     list-style-type: none;
     padding: 0;
     margin: 1.5em;
   }
 
-//   .container input {
-//     position: absolute;
-//     opacity: 0;
-//     cursor: pointer;
-//   }
-
-//   .checkmark {
-//     position: relative;
-//     top: 0;
-//     left: 0;
-//     height: 25px;
-//     width: 25px;
-//     background-color: #000;
-//   }
-
-//   /* On mouse-over, add a grey background color */
-//   .container:hover input ~ .checkmark {
-//       background-color: #ccc;
-//   }
-
-// /* When the checkbox is checked, add a blue background */
-// .container input:checked ~ .checkmark {
-//   background-color: #2196F3;
-// }
-
-// /* Create the checkmark/indicator (hidden when not checked) */
-// .checkmark:after {
-//   content: "";
-//   position: relative;
-//   display: none;
-// }
-
-// /* Show the checkmark when checked */
-// .container input:checked ~ .checkmark:after {
-//   display: inline;
-// }
-
-// /* Style the checkmark/indicator */
-// .container .checkmark:after {
-//   left: 9px;
-//   top: 5px;
-//   width: 5px;
-//   height: 10px;
-//   border: solid white;
-//   border-width: 0 3px 3px 0;
-//   -webkit-transform: rotate(45deg);
-//   -ms-transform: rotate(45deg);
-//   transform: rotate(45deg);
-// }
- 
   .button {
     margin-top: calc(#{$mainPadding} - 2rem);
   }
-  .btn-default {
+  .btn {
     background-color: $DUTCH_ORANGE;
     color: white;
     transition: $TRANSITION;
@@ -107,114 +34,26 @@
     }
   }
 
-  img {
-    width: 100%;
-  }
 
-  .styled-checkbox {
-    position: absolute; // take it out of document flow
-    opacity: 0; // hide it
-  
-    & + label {
-      position: relative;
-      cursor: pointer;
-      padding: 0;
-    }
-  
-    // Box.
-    & + label:before {
-      content: '';
-      margin-right: 10px;
-      display: inline-block;
-      vertical-align: text-top;
-      width: 20px;
-      height: 20px;
-      background: white;
-    }
-  
-    // Box hover
-    &:hover + label:before {
-      background: #f35429;
-    }
-    
-    // Box focus
-    &:focus + label:before {
-      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
-    }
-  
-    // Box checked
-    &:checked + label:before {
-      background: #f35429;
-    }
-    
-    // Disabled state label.
-    &:disabled + label {
-      color: #b8b8b8;
-      cursor: auto;
-    }
-  
-    // Disabled box.
-    &:disabled + label:before {
-      box-shadow: none;
-      background: #ddd;
-    }
-  
-    // Checkmark. Could be replaced with an image
-    &:checked + label:after {
-      content: '';
-      position: absolute;
-      left: 5px;
-      top: 9px;
-      background: white;
-      width: 2px;
-      height: 2px;
-      box-shadow: 
-        2px 0 0 white,
-        4px 0 0 white,
-        4px -2px 0 white,
-        4px -4px 0 white,
-        4px -6px 0 white,
-        4px -8px 0 white;
-      transform: rotate(45deg);
-    }
+
+  .card-body {
+    background-color: #fff;
+    margin-bottom: 1.5em;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin-left: 10%;
+    width: 80%
   }
   
+  .card-body:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
 
-
-
-
-
-
+  .btn-card {
+    margin-left: 10%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+  }
 }
 
-
-
-
-  // .form-wrapper {
-  //   padding: 0;
-  //   margin: $mainPadding auto;
-  //   width: var(--width);
-  //   max-width: var(--maxWidth);
-  //   @include div-border-shadow;
-  //   text-align: left;
-  //   border-radius: 10px;
-  // }
-
-
-  //Top level:
-
-  // $mainPadding: 20px;
-
-  // --width: 100%;
-  // --maxWidth: 400px;
-
-  // @include tablet() {
-  //   --width: 46%;
-  //   --maxWidth: 500px;
-
-  //   @include flex;
-  //   justify-content: space-around;
-  //   flex-wrap: wrap;
-  // }
-  // @include pc() {
-  // }
