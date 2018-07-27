@@ -1,0 +1,10 @@
+
+#profile-form {
+	width: 98vw;
+	max-width: 400px;
+	margin: 0px auto 1em;
+}
+
+#profile-form > div, #profile-form .btn-primary {
+	margin-top: 1em;
+}
