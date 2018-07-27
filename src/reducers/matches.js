@@ -37,7 +37,6 @@ const dislikeUser = (state, { mainUserId, profileUserId }) => {
 const reducer = (state = null, { type, payload } = {}) => {
   switch (type) {
     case LIKE_USER:
-      console.log('like')
       return payload.newState
     case DISLIKE_USER:
       return payload.newState
