@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import { reducer as formReducer } from 'redux-form'
 
 import currentUserReducer from './currentUser'
 import usersReducer from './users'
@@ -11,5 +12,6 @@ export default combineReducers({
   users: usersReducer,
   preferences: preferencesReducer,
   matches: matchesReducer,
+  form: formReducer,
   authentication
 })
