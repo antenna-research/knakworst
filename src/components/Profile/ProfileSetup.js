@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import './styles/ProfileSetup.css'
 import NavComponent from "../Nav/NavComponent";
 import { withRouter } from 'react-router-dom'
 import { Field, reduxForm } from 'redux-form'

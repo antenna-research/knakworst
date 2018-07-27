@@ -1,41 +1,30 @@
-import { Col, Grid, Row } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-import Button from 'react-bootstrap/lib/Button'
 import React from 'react'
-
 import './styles/MatchesPage.scss'
 
-import PropTypes from 'prop-types'
 
 const MatchesPage = props => (
-  <div id="MachesPage">
+  <div id="MatchesPage">
     {props.matchedUsers.map(user => (
-      <Col xs={12} md={5} key={user.id} className="profile-wrapper">
-        <img src={user.image} alt="" />
-        <div className="info">
-          <h1 className="name">{user.username}</h1>
-          <div className="details">
-            <p>age: {user.age}</p>
-            <p>location: {user.address}</p>
-            <p>genre(s): {user.genres.map(genre => <span key={genre}>{genre} </span>)}</p>
-
-            <p>
-              instrument(s):{' '}
-              {user.instruments.map(instrument => <span key={instrument}>{instrument} </span>)}
-            </p>
-          </div>
-
+      <div key={user.id} className="MatchesPages-individualMatch-div">
+      <img src={user.image} alt="" />
+      <div id="user">
+        <div id="user-details">
+          <h1 className="name">{user.username}, {user.age}</h1>
+          <div><FontAwesomeIcon icon={'map-marker-alt'}/>   {user.address}</div>
+        </div>
+        <div id="profile-button">
+          <a href={`https://wa.me/${user.phone.replace(/[^0-9]/g, "")}?text=I'm%20matched%20with%20you%20on%20Knakworst`}><FontAwesomeIcon icon={['fab', 'whatsapp']} size={'2x'}/></a>
           <Link to={`/profile/${user.id}`}>
-            <Button className="button">Profile</Button>
+            <button>Profile</button>
           </Link>
         </div>
-      </Col>
+        </div>
+      </div>
     ))}
   </div>
 )
 
-MatchesPage.propTypes = {}
 
 export default MatchesPage

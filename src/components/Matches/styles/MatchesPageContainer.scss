@@ -1,0 +1,14 @@
+@import '../../../scss-lib/mixin';
+@import '../../../scss-lib/var';
+
+#MatchesPageContainer-NoMatches {
+  @include flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  text-align: center;
+  flex-direction: column;
+  h1 {
+    margin-bottom: 2em;
+  }
+}
